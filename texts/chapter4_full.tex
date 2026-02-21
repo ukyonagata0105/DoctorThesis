@@ -1,0 +1,638 @@
+地域公共交通政策における「連携」と「共創」の再設計：認知バイアスと制度的調整の統合的アプローチ
+
+\section{Re-designing ``Collaboration'' and ``Co-creation'' in Regional Public Transport Policy: Integrated Approach to Cognitive Biases and Institutional Coordination}\label{re-designing-collaboration-and-co-creation-in-regional-public-transport-policy-integrated-approach-to-cognitive-biases-and-institutional-coordination}
+
+永田　右京＊
+
+Ukyo Nagata
+
+著者所属 ＊岩手県立大学総合政策学部　〒020-0693　岩手県滝沢市巣子152-52　s246w003@s.iwate-pu.ac.jp
+
+\subsection{Abstract}\label{abstract}
+
+This study develops a computational modeling framework to analyze cognitive bias effects in collaborative transport policy implementation and proposes institutional design principles for effective stakeholder coordination. Using cooperative robot control theory, this study models stakeholder interactions in policy networks where each agent represents a policy stakeholder with specific capabilities and positions. Through systematic simulation experiments, this research analyzes how three key cognitive biases---confirmation bias, status quo bias, and narrow framing bias---affect coordination effectiveness in collaborative governance. The computational analysis reveals that confirmation bias can paradoxically enhance coordination when properly leveraged, while status quo bias creates threshold effects requiring careful institutional management. Narrow framing bias consistently degrades system performance through reduced global optimization. Based on these findings and analysis of implementation gaps in existing collaborative frameworks, this study proposes a three-tier institutional architecture that separates political-administrative and administrative-business interfaces to optimize both democratic accountability and operational efficiency. This study contributes to policy science by providing theoretically grounded institutional design principles derived from computational analysis of cognitive mechanisms underlying stakeholder coordination in public transport governance.
+
+\textbf{Keywords}: Public transport policy, Collaboration, Institutional design, Cognitive bias, ill-posed problem
+
+\subsection{1. Introduction}\label{introduction}
+
+\subsubsection{1.1 Research Background and Problem Statement}\label{research-background-and-problem-statement}
+
+Regional public transport policy in Japan has undergone significant transformation since the 2002 deregulation, evolving from a primarily regulatory approach to one emphasizing ``collaboration'' (連携) and ``co-creation'' (共創) among diverse stakeholders. This shift reflects broader trends in public governance toward collaborative approaches that seek to harness the expertise and resources of multiple actors---government agencies, transport operators, citizens, and other businesses---to address complex policy challenges.
+
+The institutionalization of this transformation has been further accelerated by recent policy developments. The formulation of regional public transport plans has become a mandatory effort (国土交通省2022:1 地域公共交通計画と乗合バス等の補助制度の連動化に関する解説パンフレット), with specific guidance emphasizing the establishment of conference bodies to facilitate efficient information exchange and consultation among stakeholders (国土交通省2025: 5 地域公共交通計画等の作成と運用の手引き 第4版 理念編). This institutional framework provides the formal structure within which collaboration and co-creation processes must operate.
+
+The policy discourse around collaboration and co-creation gained particular prominence following the 2021 policy framework ``Research Group on Co-creation of Regional Transport for the Post-Corona Era'' by the Ministry of Land, Infrastructure, Transport and Tourism (MLIT). This framework explicitly calls for ``co-creative transport'' involving three key dimensions: transport operators actively generating human flows to revitalize regional communities, cross-sector collaboration between transport operators and other industries, and community engagement that treats transport as a shared responsibility.
+
+However, despite the policy emphasis on collaboration and co-creation, empirical evidence suggests significant gaps between policy intentions and implementation outcomes. The proliferation of collaborative frameworks has not necessarily translated into more effective or sustainable transport solutions, raising fundamental questions about the conditions under which collaboration and co-creation can function effectively in public transport governance.
+
+This implementation gap is further exacerbated by the structural resource constraints facing local governments in Japan. The 2023 report by the Council of Experts on Decentralization Reform specifically identified an ``inverted triangle'' burden structure where municipal governments face disproportionately higher implementation costs compared to prefectural and national levels. The report documented several critical resource pressures: ``In some cases, a single staff member handles multiple ministry operations, and multiple plans are formulated within one department. In such cases, there is a sense of duplication in the content of these plans and work becomes concentrated due to overlapping planning periods''; ``Due to resource shortages, sufficient time cannot be secured for planning-related administrative work, leading to cases where national templates or examples from other municipalities are almost entirely followed to secure funding tied to plans and avoid being publicly identified as non-implementing entities''; and ``Even when plan formulation itself is a best-effort obligation and formulation procedures are left to local government discretion, considerable procedural costs such as deliberation council reviews occur to obtain regional consensus'' (Council of Experts on Decentralization Reform, 2023: 9-12). These structural constraints create a context where collaborative and co-creative approaches, despite their theoretical appeal, may be undermined by practical implementation realities.
+
+\subsubsection{1.2 Policy Context and Evolution}\label{policy-context-and-evolution}
+
+Japanese regional public transport policy has evolved through distinct phases, each reflecting different approaches to the balance between market mechanisms and public intervention:
+
+\textbf{2002 Deregulation}: Shifted route operations from permission-based to notification-based system and changed subsidy allocation from company-wide to route-specific support, introducing market competition while maintaining essential services through targeted subsidies.
+
+\textbf{2006 Regional Public Transport Conferences}: Established formal collaborative governance mechanisms, enabling community bus operations and providing platforms for stakeholder participation in transport planning.
+
+\textbf{2010 Life Transport Survival Project}: Institutionalized a competitive approach where only ``striving regions'' were permitted to maintain living transport services, emphasizing local initiative and self-reliance.
+
+\textbf{2021 Co-creation Framework}: Explicitly embraced co-creation as the central organizing principle, encompassing resource mobilization (``total mobilization of transport resources''), joint management (direct operator collaboration), and service optimization (``bundle and reduce'' approaches).
+
+\subsubsection{1.3 Empirical Evidence of Implementation Gaps}\label{empirical-evidence-of-implementation-gaps}
+
+To assess the practical implementation of collaboration and co-creation principles, this study conducted comprehensive analysis of Japan's MaaS (Mobility as a Service) initiative, which represents a concrete manifestation of co-creation policy. Analysis of all 38 projects approved under the FY2020 Japan MaaS initiative reveals significant discrepancies between policy ideals and implementation reality.
+
+Regarding business performance indicators, 92\% of projects (35/38) included metrics focused on usage rates, revenue generation, or operational efficiency. In stark contrast, for non-business indicators, only 29\% of projects (11/38) incorporated indicators addressing social impact, accessibility improvement, or environmental outcomes. Most concerning was the level of citizen participation mechanisms, where merely 5\% of projects (2/38) established meaningful mechanisms for citizen participation in project governance and evaluation.
+
+These findings indicate that collaborative frameworks may be captured by transport operator interests rather than serving broader public purposes, with minimal achievement of genuine democratic participation.
+
+\subsubsection{1.4 Research Objectives and Approach}\label{research-objectives-and-approach}
+
+This study addresses three primary research questions. First, the policy implementation gap is examined by investigating to what extent collaborative transport policies achieve their stated objectives of moving beyond business-focused metrics to incorporate broader social and democratic values. Second, coordination mechanisms are analyzed by exploring how cognitive biases and stakeholder characteristics affect the effectiveness of collaborative coordination in transport policy implementation. Third, institutional design is addressed by determining what institutional arrangements can optimize the benefits of collaboration while mitigating its inherent limitations and coordination failures.
+
+This research employs an integrated approach combining literature review of empirical policy evaluation (Nagata, 2024), computational modeling using cooperative robot control theory, and institutional design theory. This approach contributes to policy science by synthesizing existing empirical evidence of implementation gaps with theoretical insights into how cognitive biases affect stakeholder coordination effectiveness.
+
+\subsection{2. Theoretical Framework and Literature Review}\label{theoretical-framework-and-literature-review}
+
+\subsubsection{2.1 Collaborative Governance Theory}\label{collaborative-governance-theory}
+
+Collaborative governance has emerged as a dominant paradigm in public administration, defined by Ansell and Gash (2008) as ``a governing arrangement where one or more public agencies directly engage non-state stakeholders in a collective decision-making process that is formal, consensus-oriented, and deliberative and that aims to make or implement public policy or manage public programs or assets.''
+
+In the context of transport policy, collaborative approaches have been promoted as solutions to the limitations of traditional regulatory frameworks. Kato et al.~(2009) identify four critical conditions for successful community-participatory public transport: shared recognition and responsibility distribution among stakeholders, mutual benefit for all participants, presence of key coordinators, and connection between stakeholder efforts and service improvement outcomes.
+
+However, collaborative governance faces inherent challenges. Emerson et al.~(2012) note that collaboration requires significant transaction costs, may lead to lowest-common-denominator solutions, and can be captured by well-organized interests. These challenges are particularly acute in transport policy, where technical complexity, regulatory constraints, and commercial interests create additional coordination difficulties.
+
+\subsubsection{2.2 Co-creation in Public Service Delivery}\label{co-creation-in-public-service-delivery}
+
+Co-creation represents an evolution beyond traditional collaboration, emphasizing joint value creation between public agencies and stakeholders (Voorberg et al., 2015). In transport policy, co-creation manifests in several forms. Resource mobilization involves utilizing non-traditional transport resources such as vehicles, drivers, and infrastructure from diverse sources. Joint operations encompass formal partnerships between transport operators through joint ventures and shared services that enable greater coordination. Service integration focuses on bundling transport with other services to create comprehensive mobility solutions that address multiple user needs simultaneously.
+
+The Japanese policy framework identifies three dimensions of co-creation: transport operators actively generating community vitalization, cross-sector collaboration for problem-solving, and community ownership of transport services. However, empirical studies reveal mixed results. The Kyushu Regional Transport Bureau (2023) found that while co-creation enables previously impossible route reorganizations and improves service efficiency, business performance improvements remain limited, and building necessary trust relationships requires significant time investment.
+
+\subsubsection{2.3 Empirical Evidence on Collaboration and Co-creation Effects}\label{empirical-evidence-on-collaboration-and-co-creation-effects}
+
+\paragraph{2.3.1 Collaboration Effects}\label{collaboration-effects}
+
+Kato et al.~(2009) analyzed community-participatory regional public transport and identified four existence requirements, though they did not address the elements needed to realize these conditions. These requirements include ensuring that related stakeholders share recognition and responsibility distribution, that each stakeholder can benefit from this participation, that key persons exist to coordinate stakeholders, and that stakeholder efforts connect to usage promotion and value enhancement.
+
+Kita (2006) positively evaluated the provision of collaboration and cooperation venues in comprehensive coordination plan formulation from a technical personnel development perspective, noting that ``providing venues and opportunities for various transport-related stakeholders to collaborate while receiving support from researchers and technical experts to improve planning skills\ldots{} is precisely the policy that the state should implement.''
+
+\paragraph{2.3.2 Co-creation Effects}\label{co-creation-effects}
+
+The Kyushu Regional Transport Bureau (2023) conducted comprehensive interviews and analysis of co-creation across Kyushu regions, identifying both effects and challenges.
+
+Regarding co-creation effects, the analysis found that previously unimplementable route reorganizations became feasible, and both convenience maintenance/improvement and transport efficiency improvement were achieved simultaneously. However, significant co-creation challenges also emerged. Business performance improvements remain limited, and simply appealing transport operators' difficulties cannot enable municipal support. Building trust relationships necessary for collaboration requires considerable time investment, and few opportunities exist for discussing role distribution, cost burden, and community development between transport operators and other private businesses and administration.
+
+Nomura (2023) analyzed regional transport security through Limited Liability Partnership (LLP) in Ichinohe Town, where municipalities and transport operators participate as parallel LLP members, reducing registration burden and responsibility distribution costs, positioning this as a co-creation example.
+
+Yoshida (2021) implemented inter-operator collaboration in Hachinohe City (2007), reducing 200 services while achieving equal intervals, resulting in increased ridership and profitability.
+
+\subsubsection{2.4 Cooperative Control Theory and Social Systems}\label{cooperative-control-theory-and-social-systems}
+
+\textbf{Introduction}
+
+Cooperative control theory provides a framework for coordinating multiple autonomous agents to achieve shared objectives, forming the backbone of multi-agent systems (MAS). This theory has evolved to address complex challenges in automation, robotics, and increasingly, the analysis of social systems and collaborative governance.
+
+\textbf{Core Concepts and Mechanisms}
+
+Cooperative control theory addresses several key problems in multi-agent coordination. Consensus mechanisms ensure all agents agree on certain variables or states, which is fundamental for group coordination in MAS (Gulzar et al., 2018; Ying et al., 2022). Formation and containment problems involve arranging agents in specific patterns or ensuring they remain within certain boundaries (Ying et al., 2022; Anand et al., 2024; Briñón-Arranz et al., 2014). Resource allocation and coverage focus on distributing tasks or resources efficiently among agents (He et al., 2023; Ying et al., 2022), while flocking and connectivity problems address the maintenance of group cohesion and communication links (Ying et al., 2022).
+
+\emph{Theoretical Foundations:} Cooperative control leverages graph theory to model agent interactions, Lyapunov theory for stability, and distributed optimization for performance (Hengster-Movrić \& Lewis, 2014; Anand et al., 2024; Briñón-Arranz et al., 2014). Algorithms are designed to work with only local information, enabling scalability and robustness in large systems (Hengster-Movrić \& Lewis, 2014; Yang et al., 2023).
+
+\textbf{Methodologies and Algorithmic Advances}
+
+The field has developed sophisticated methodological approaches to multi-agent coordination. Distributed control protocols enable agents to make decisions based on local neighbor information while supporting global objectives without centralized oversight (Hengster-Movrić \& Lewis, 2014; Anand et al., 2024). Adaptive and learning-based control methods increasingly utilize neural networks and reinforcement learning to handle uncertainties and dynamic environments, allowing agents to adapt and optimize their behavior collaboratively (Shi \& Shen, 2015; Lan et al., 2023). Game theory integration has been applied in scenarios such as traffic signal control, where agents must balance individual and collective goals, thereby enhancing decision-making in dynamic, competitive environments (Abdoos, 2020).
+
+\textbf{Extensions to Social Systems and Collaborative Governance}
+
+Cooperative control theory has been extended to various social and governance applications. Urban traffic management represents one successful application area where multi-agent cooperative control, combined with game theory and reinforcement learning, has been applied to optimize traffic signals across networks, reducing congestion and improving flow through agent collaboration (Abdoos, 2020). Human-robot and human-agent collaboration applications demonstrate how cooperative control underpins intelligent interaction and collaboration in mixed human-machine teams, supporting decision-making and task allocation in complex social environments (Yang et al., 2023). In collaborative governance contexts, the principles of consensus, distributed decision-making, and adaptive coordination in MAS are increasingly informing models of collaborative governance, where multiple stakeholders must align on shared policies or actions (He et al., 2023; Yang et al., 2023).
+
+\textbf{Challenges and Future Directions}
+
+Several challenges remain in the advancement of cooperative control theory. Scalability and complexity issues arise as systems grow, making it increasingly difficult to ensure stability, optimality, and real-time performance (He et al., 2023; Yang et al., 2023). Uncertainty and nonlinearity present ongoing challenges in handling unknown, state-dependent effects and nonlinear dynamics, though adaptive and learning-based methods show promise in addressing these issues (Shi \& Shen, 2015; Lan et al., 2023). Integration with social systems represents a particularly complex challenge, as translating cooperative control principles to human-centric domains requires addressing issues of trust, communication, and heterogeneous agent capabilities (Yang et al., 2023; Abdoos, 2020).
+
+\textbf{Summary} Cooperative control theory is central to the coordination of multi-agent systems, addressing problems like consensus, formation, and resource allocation through distributed, adaptive, and learning-based methods. Its extension to social systems and collaborative governance leverages these principles to manage complex, dynamic, and decentralized environments, with ongoing research focused on scalability, uncertainty, and integration with human factors.
+
+\subsubsection{2.5 Empirical Evidence of Implementation Gaps: Japan MaaS Policy Analysis}\label{empirical-evidence-of-implementation-gaps-japan-maas-policy-analysis}
+
+To assess the practical implementation of collaboration and co-creation principles, this study draws on recent empirical research on Japan's MaaS (Mobility as a Service) initiative. Japan MaaS represents a concrete manifestation of co-creation policy, explicitly designed to ``solve regional challenges through transport improvement'' and requiring municipal involvement in the application process.
+
+Japan MaaS is a public policy initiative that applies the MaaS concept---integrating transport-related services to provide them as a unified service---to address regional challenges. Unlike purely commercial MaaS implementations, Japan MaaS adopts a ``regional problem-solving through transport improvement'' stance, requiring municipal involvement in the application process. The approach incorporates cross-industry collaboration thinking, making it closely aligned with ``co-creation'' principles.
+
+Previous research by Nagata (2024) analyzing all 38 Japan MaaS projects revealed significant implementation gaps in collaborative governance. The analysis demonstrated that 92\% of projects focused primarily on business indicators, only 29\% incorporated non-business indicators addressing social impact or accessibility, and merely 5\% established meaningful citizen participation mechanisms. These findings indicate that collaborative frameworks may be captured by business interests rather than serving broader public purposes, with minimal achievement of genuine democratic participation.
+
+This pattern reflects broader challenges in collaborative governance, including organized interest capture, technical complexity barriers to citizen participation, and institutional path dependence that constrains innovation in governance approaches (Nagata, 2024). These findings motivate the need for more sophisticated understanding of how stakeholder coordination actually functions in practice, leading to the computational modeling approach examining the cognitive mechanisms underlying these coordination failures.
+
+\subsubsection{2.6 Main Cognitive Biases in Collaborative Transport Policy Implementation}\label{main-cognitive-biases-in-collaborative-transport-policy-implementation}
+
+\textbf{Key Cognitive Biases}
+
+Several cognitive biases significantly influence collaborative transport policy implementation. Loss aversion manifests when decision-makers and stakeholders tend to value existing assets or policies more highly than potential gains from new initiatives, leading to resistance to change and preference for the status quo (Watkins \& Musselwhite, 2025). Status quo bias reflects a systematic preference for maintaining current conditions, making it difficult to implement innovative or disruptive transport policies (Watkins \& Musselwhite, 2025). Risk perception errors occur when misjudgments about the likelihood or impact of risks skew policy priorities, often leading to overly cautious or misaligned decisions (Watkins \& Musselwhite, 2025). Confirmation bias emerges when stakeholders seek or interpret information in ways that confirm their pre-existing beliefs, reducing openness to alternative perspectives or evidence (Rastogi et al., 2020). Anchoring bias occurs when initial information or assumptions disproportionately influence subsequent judgments, even when new, more relevant data becomes available (Rastogi et al., 2020). Additionally, case-specific, environmental, and human-nature biases include those arising from specific data, context or culture, and universal cognitive tendencies, all of which shape how transport policies are evaluated and implemented (Watkins \& Musselwhite, 2025).
+
+\textbf{Mechanisms of Influence}
+
+Cognitive biases operate through several distinct mechanisms in policy settings. Information processing is affected by cognitive biases that influence how stakeholders perceive, interpret, and prioritize information, often leading to selective attention or misinterpretation of data relevant to transport policy (Acciarini et al., 2020; Rastogi et al., 2020; Watkins \& Musselwhite, 2025). Stakeholder interaction is complicated by biases that can hinder the achievement of cognitive consensus in multi-stakeholder settings, as different groups may frame problems and solutions according to their own interests and mental models (Knoppen et al., 2021). Decision-making dynamics are influenced by biases such as loss aversion and status quo bias that can slow down or block policy innovation, while anchoring and confirmation bias can entrench initial positions, making collaborative negotiation and adaptation more difficult (Rastogi et al., 2020; Watkins \& Musselwhite, 2025; Knoppen et al., 2021).
+
+\textbf{Constructive and Detrimental Effects}
+
+Cognitive biases demonstrate both detrimental and potentially constructive effects in policy settings. Most cognitive biases are detrimental in collaborative policy settings, leading to suboptimal decisions, resistance to necessary change, and failure to achieve consensus or system-level optimization (Watkins \& Musselwhite, 2025; Knoppen et al., 2021). For example, loss aversion and status quo bias can prevent the adoption of beneficial transport reforms (Watkins \& Musselwhite, 2025). However, constructive effects can emerge when structured stakeholder engagement and knowledge exchange help uncover and address underlying assumptions, sometimes shifting priorities and improving decision quality (Knoppen et al., 2021). Awareness and mitigation strategies, such as education, training, and iterative decision processes, can reduce the negative impact of biases and foster more effective collaboration (Watkins \& Musselwhite, 2025; Knoppen et al., 2021).
+
+\textbf{Evidence from the Literature}
+
+Empirical research provides evidence for both the challenges and potential solutions related to cognitive biases in policy settings. Studies demonstrate that structured, iterative stakeholder participation can help overcome cognitive biases by promoting knowledge exchange and revealing hidden assumptions, leading to more balanced and system-oriented policy outcomes (Knoppen et al., 2021). Comprehensive reviews highlight the prevalence and impact of biases such as loss aversion, status quo bias, and risk perception errors in transport policy, emphasizing the need for multidisciplinary approaches to identify and mitigate these effects (Watkins \& Musselwhite, 2025).
+
+Cognitive biases like loss aversion, status quo bias, and risk perception errors significantly influence collaborative transport policy implementation, often impeding innovation and consensus. However, structured stakeholder engagement and awareness strategies can help mitigate these effects and improve policy outcomes.
+
+\subsubsection{2.7 Key Principles of Institutional Design for Effective Collaborative Governance in Public Transport Policy}\label{key-principles-of-institutional-design-for-effective-collaborative-governance-in-public-transport-policy}
+
+\textbf{Theoretical Frameworks}
+
+Several theoretical frameworks inform institutional design for collaborative governance in public transport. Network-based collaborative governance demonstrates that effective collaborative governance often relies on network structures that facilitate cross-sector and interorganizational collaboration, operating at multiple levels---collaborative, financial, and interorganizational governance---each with distinct structures, processes, and orchestrators to address project complexity and stakeholder diversity (Hu et al., 2024). Inclusiveness and interdependence considerations indicate that institutional design should ensure broad stakeholder inclusion while managing the degree of interdependence among participants, as inclusive arrangements where participants are not overly interdependent tend to empower stakeholders and enhance their perceived ability to influence policy outcomes (Fossheim \& Andersen, 2022). Accountability frameworks reveal that accountability in collaborative institutions is shaped by the specificity of rules and the delegation of decision-making authority, where more detailed rules can enhance process accountability, while greater institutional independence can support legitimacy and flexibility (Mancheva et al., 2023). Good governance principles establish that transparency, accountability, stakeholder engagement, and strong leadership are foundational for effective institutional coordination and collaborative governance in public transport (Bouraima et al., 2023; Adji et al., 2023).
+
+\textbf{Empirical Findings}
+
+Empirical research provides evidence for key principles of effective institutional design. Communication and stakeholder engagement studies show that regular dialogue, consultation, and inclusive participation foster cooperation, trust, and a sense of ownership among stakeholders, which are critical for integrated planning and effective policy implementation (Adji et al., 2023; Paulsson et al., 2018). Research on power to influence policy indicates that institutional arrangements that are inclusive and reduce interdependence among participants provide greater opportunities for stakeholders to influence policymaking, leading to more innovative and accepted solutions (Fossheim \& Andersen, 2022). Studies on balancing efficiency, accountability, and coordination reveal multiple dimensions of institutional effectiveness. Regarding efficiency, streamlined frameworks and clear governance structures help reduce fragmentation and improve the implementation of transport initiatives (Bouraima et al., 2023; Hu et al., 2024). For accountability, transparent processes and well-defined roles enhance trust and ensure that collaborative arrangements remain answerable to both participants and the public (Adji et al., 2023; Mancheva et al., 2023). Concerning coordination, multi-level governance structures and regular stakeholder engagement enable better alignment of objectives and resources across diverse actors (Hu et al., 2024; Paulsson et al., 2018).
+
+\textbf{Challenges:} Lack of political will, corruption, inadequate participation, and poor vision are major barriers to effective institutional coordination. Implementing good governance principles is identified as the top strategy to overcome these challenges (Bouraima et al., 2023).
+
+\textbf{Table 1: Summary Table: Principles and Empirical Insights\\
+}(Table1参照)
+
+Effective institutional design for collaborative governance in public transport policy requires inclusive participation, clear accountability, multi-level coordination, and strong stakeholder engagement, supported by transparent and context-sensitive frameworks. These principles help balance efficiency, accountability, and coordination among diverse stakeholders.
+
+\subsection{3. Computational Modeling Framework}\label{computational-modeling-framework}
+
+\subsubsection{3.1 Cooperative Control Model Structure}\label{cooperative-control-model-structure}
+
+This study adapts Yoshihara et al.'s (2009) cooperative robot control theory to model stakeholder interactions in policy implementation. An N-joint robot arm represents a policy network where each joint \(i\) corresponds to a policy stakeholder with state variables:
+
+\begin{itemize}
+\tightlist
+\item
+  Position vector: \includegraphics[width=0.77592in,height=0.38462in,alt={Position vector}]{media/image1.png}
+\item
+  Velocity vector: \includegraphics[width=0.77592in,height=0.38462in,alt={Velocity vector}]{media/image2.png}
+\item
+  Joint angle: \includegraphics[width=0.77592in,height=0.38462in,alt={Joint angle}]{media/image3.png}
+\item
+  Link length: \includegraphics[width=0.77592in,height=0.38462in,alt={Link length}]{media/image4.png}
+\end{itemize}
+
+This mapping allows us to represent policy stakeholders as autonomous agents with specific capabilities (link lengths) and policy positions (joint angles) who must coordinate to achieve collective policy objectives.
+
+\subsubsection{3.2 Kinematic Model}\label{kinematic-model}
+
+Each joint's position depends on previous joints' positions and cumulative joint angles:
+
+\includegraphics[width=3.67559in,height=0.49498in,alt={Position calculation}]{media/image5.png}
+
+where \includegraphics[width=1.11706in,height=0.38462in,alt={Initial position}]{media/image6.png}. This represents the cumulative effect of stakeholder decisions on policy outcomes.
+
+Velocity is computed as the time derivative of position:
+
+\includegraphics[width=0.87625in,height=0.38462in,alt={Velocity definition}]{media/image7.png}
+
+\subsubsection{3.3 Control Objectives and Coordination Mechanisms}\label{control-objectives-and-coordination-mechanisms}
+
+The system's objective is to guide the end-effector (final stakeholder) to track a target position \includegraphics[width=0.77592in,height=0.38462in,alt={Target position}]{media/image8.png} representing policy goals. Each joint \(i\) follows a cooperative control algorithm:
+
+\paragraph{4.3.1 Target Direction Vector Calculation}\label{target-direction-vector-calculation}
+
+Direction vector from end-effector to target:
+
+\includegraphics[width=1.58863in,height=0.38462in,alt={Normal vector}]{media/image9.png}
+
+Normalized perpendicular vector:
+
+\includegraphics[width=1.21405in,height=0.38462in,alt={Unit vector}]{media/image10.png}
+
+\paragraph{4.3.2 Target Velocity Decomposition}\label{target-velocity-decomposition}
+
+Target velocity \includegraphics[width=0.77592in,height=0.38462in,alt={Target velocity}]{media/image11.png} is decomposed into each joint's motion direction:
+
+\includegraphics[width=2.40468in,height=0.38462in,alt={Local velocity}]{media/image12.png}
+
+\includegraphics[width=2.55853in,height=0.38462in,alt={Remaining velocity}]{media/image13.png}
+
+\paragraph{4.3.3 Coordination Coefficient Calculation}\label{coordination-coefficient-calculation}
+
+Each joint's coordination coefficient \includegraphics[width=0.77592in,height=0.38462in,alt={Coordination coefficient}]{media/image14.png} is calculated based on the difference between its target velocity and subsequent joints' actual velocities:
+
+\includegraphics[width=2.18395in,height=0.54181in,alt={Coordination formula}]{media/image15.png}
+
+where \includegraphics[width=0.77592in,height=0.38462in,alt={Stability constants}]{media/image16.png} are small positive constants for numerical stability.
+
+\subsubsection{3.4 Cognitive Bias Integration}\label{cognitive-bias-integration}
+
+\paragraph{4.4.1 Status Quo Bias}\label{status-quo-bias}
+
+Status quo bias \includegraphics[width=0.77592in,height=0.38462in,alt={Status quo bias}]{media/image17.png} is incorporated as resistance to joint angle changes:
+
+\includegraphics[width=1.52843in,height=0.38462in,alt={Status quo formula}]{media/image18.png}
+
+where \includegraphics[width=0.77592in,height=0.38462in,alt={Angular velocity}]{media/image19.png} is the angular velocity without bias.
+
+\paragraph{4.4.2 Confirmation Bias}\label{confirmation-bias}
+
+Confirmation bias \includegraphics[width=0.77592in,height=0.38462in,alt={Confirmation bias}]{media/image20.png} is incorporated as coordination coefficient modification:
+
+\includegraphics[width=1.66555in,height=0.38462in,alt={Confirmation formula}]{media/image21.png}
+
+Positive confirmation bias represents overconfidence in self-judgment, while negative values represent excessive self-doubt.
+
+\paragraph{4.4.3 Narrow Framing Bias}\label{narrow-framing-bias}
+
+Narrow framing bias \includegraphics[width=0.77592in,height=0.38462in,alt={Narrow framing bias}]{media/image22.png} is incorporated as neglect of global optimization:
+
+\includegraphics[width=3.79264in,height=0.38462in,alt={Narrow framing formula}]{media/image23.png}
+
+\subsubsection{3.5 Cooperative Velocity Calculation}\label{cooperative-velocity-calculation}
+
+Each joint's cooperative velocity \includegraphics[width=0.99665in,height=0.38462in,alt={Cooperative velocity}]{media/image24.png} is calculated as:
+
+\includegraphics[width=4.02341in,height=0.38462in,alt={Cooperative velocity formula}]{media/image25.png}
+
+\subsubsection{3.6 Joint Angle Updates}\label{joint-angle-updates}
+
+Final joint angle updates are based on the inner product of cooperative velocity and target velocity:
+
+\includegraphics[width=2in,height=0.38462in,alt={Joint control}]{media/image26.png}
+
+where \includegraphics[width=0.77592in,height=0.38462in,alt={Control gain}]{media/image27.png} is the control gain.
+
+\subsubsection{3.7 Performance Metrics}\label{performance-metrics}
+
+System performance is evaluated using the following metrics:
+
+\paragraph{4.7.1 Accuracy × Distance}\label{accuracy-distance}
+
+\includegraphics[width=2.13043in,height=0.38462in,alt={Accuracy metric}]{media/image28.png}
+
+where \includegraphics[width=2.14381in,height=0.46823in,alt={Distance metric}]{media/image29.png} is cumulative movement distance.
+
+\paragraph{4.7.2 Energy Efficiency}\label{energy-efficiency}
+
+\includegraphics[width=0.98997in,height=0.46823in,alt={Efficiency metric}]{media/image30.png}
+
+\paragraph{4.7.3 Joint Activity}\label{joint-activity}
+
+\includegraphics[width=1.38462in,height=0.46823in,alt={Activity index}]{media/image31.png}
+
+\paragraph{4.7.4 Joint Smoothness}\label{joint-smoothness}
+
+\includegraphics[width=2.59866in,height=0.46823in,alt={Smoothness index}]{media/image32.png}
+
+\subsubsection{3.8 Simulation Implementation Process}\label{simulation-implementation-process}
+
+(Figure 1参照) \emph{Figure 1: Comprehensive simulation process flow showing the six-stage methodology for analyzing stakeholder coordination through robot arm control. The process includes initial setup, bias application, control execution, performance evaluation, statistical analysis, and policy implications derivation. This framework enables systematic analysis of 1,820 experiments with randomized conditions.}
+
+\subsection{4. Experimental Design}\label{experimental-design}
+
+\subsubsection{4.1 Experimental Overview}\label{experimental-overview}
+
+To quantitatively evaluate the impact of cognitive biases on coordination performance, this study conducted a comprehensive experimental program totaling 1,820 runs. The experimental design included baseline experiments with 100 runs without bias, confirmation bias experiments comprising 11 conditions with 40 runs each (440 experiments total, intensity 0.0-1.0, step 0.1), status quo bias experiments involving 21 conditions with 40 runs each (840 experiments total, intensity 0.0-1.0, step 0.05), and narrow framing experiments consisting of 11 conditions with 40 runs each (440 experiments total, intensity 0.0-1.0, step 0.1).
+
+\subsubsection{4.2 Bias Experiments}\label{bias-experiments}
+
+To avoid deterministic results, this study implemented comprehensive experimental design with randomized initial conditions:
+
+(Figure 2参照) \emph{Figure 2: Four key animation scenarios demonstrating how different cognitive biases affect stakeholder coordination patterns. Each scenario shows distinct joint configurations and target-reaching behaviors: (a) normal operation without bias, (b) confirmation bias promoting policy goal focus, (c) status quo bias maintaining existing approaches, and (d) narrow framing limiting system-wide perspective.}
+
+Each experiment incorporated multiple randomization parameters to ensure statistical validity. Initial joint angles were varied within ±0.1 radians, target positions were varied around the center by ±0.01m with radius variation of ±0.005m, control gains were varied by ±0.5, and switching thresholds were varied by ±0.002.
+
+\subsubsection{4.3 Statistical Analysis Methods}\label{statistical-analysis-methods}
+
+Statistical analysis employed multiple complementary methods to ensure robust interpretation of results. Analysis of Variance (ANOVA) was used to test for statistical significance of bias effects across different experimental conditions. Confidence intervals were calculated to estimate effect sizes and provide measures of uncertainty around mean performance values. Regression analysis was conducted to verify linear relationships between bias intensity and coordination performance metrics.
+
+\subsection{4. Experimental Results}\label{experimental-results}
+
+\subsubsection{4.1 Statistical Analysis Results}\label{statistical-analysis-results}
+
+\paragraph{5.1.1 Confirmation Bias}\label{confirmation-bias-1}
+
+Analysis of confirmation bias revealed no significant effect on coordination performance (F=0.838, p=0.602). Average performance remained stable at 0.970±0.002 across all intensity levels, suggesting a constructive role for this bias type.
+
+\paragraph{5.1.2 Status Quo Bias}\label{status-quo-bias-1}
+
+Analysis of status quo bias demonstrated a significant effect on coordination performance (F=1.593, p=0.044). A notable threshold effect occurred around intensity 0.2, with performance degradation beyond this level. These findings have important institutional design implications, emphasizing the importance of threshold management in policy coordination systems.
+
+\paragraph{5.1.3 Narrow Framing}\label{narrow-framing}
+
+Analysis of narrow framing bias showed a significant negative effect on coordination performance (F=1.985, p=0.028). The results demonstrated linear degradation with R²=0.204 and a slope of -0.00107, indicating overall system performance decline as narrow framing intensity increased.
+
+\subsubsection{4.2 Comprehensive Bias Effect Analysis}\label{comprehensive-bias-effect-analysis}
+
+(Figure 3参照) \emph{Figure 3: Constructive Effect of Confirmation Bias}
+
+(Figure 4参照) \emph{Figure 4: Threshold Effect of Status Quo Bias}
+
+(Figure 5参照) \emph{Figure5 : Linear Degradation of Narrow Framing Bias}
+
+\subsubsection{4.3 Joint-Specific Analysis}\label{joint-specific-analysis}
+
+Analysis of how biases affect different stakeholder positions within the policy network revealed:
+
+\paragraph{5.3.1 Base Joint (Joint 0) Analysis}\label{base-joint-joint-0-analysis}
+
+The base joint representing political and citizen participation level showed stabilizing effects from confirmation bias.
+
+\paragraph{5.3.2 End-Effector Joint (Joint 7) Analysis}\label{end-effector-joint-joint-7-analysis}
+
+The end-effector joint representing business operator level showed the most pronounced effects from status quo bias.
+
+\subsubsection{5.4 Summary of Experimental Results}\label{summary-of-experimental-results}
+
+Through 1,820 experiments, this analysis obtained the following findings:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Confirmation Bias}: Constructive effect maintaining coordination performance
+\item
+  \textbf{Status Quo Bias}: Sharp change around threshold 0.2
+\item
+  \textbf{Narrow Framing}: Linear performance degradation
+\end{enumerate}
+
+\subsubsection{4.4 Statistical Analysis}\label{statistical-analysis}
+
+This study conducted comprehensive statistical analysis on 1,820 experiments (100 baseline + 440 confirmation bias + 840 status quo bias + 440 narrow framing bias) with randomized initial conditions to ensure statistical validity. ANOVA tests revealed distinct patterns for each bias type:
+
+\textbf{Confirmation Bias}: No significant effect on performance (F = 0.838, p = 0.602), supporting the hypothesis that confirmation bias can be constructively leveraged. Performance remained stable across all intensity levels (0.0-1.0), with mean accuracy ranging from 0.970 to 0.970.
+
+\textbf{Status Quo Bias}: Significant negative effect (F = 1.593, p = 0.044), confirming the threshold effect around intensity 0.25. Performance degraded sharply beyond this threshold, validating the institutional design recommendations for managing resistance to change.
+
+\textbf{Narrow Framing Bias}: Significant linear degradation effect (F = 1.985, p = 0.028), demonstrating the importance of maintaining system-wide perspectives. Linear regression analysis showed R² = 0.204 with a negative slope of -0.00107.
+
+All experiments included appropriate confidence intervals (95\% CI) and effect size calculations. The baseline condition showed mean accuracy of 0.969 ± 0.002, providing a stable reference point for bias comparisons.
+
+\subsubsection{4.5 Joint-Specific Analysis}\label{joint-specific-analysis-1}
+
+To understand how biases affect different stakeholder positions within the policy network, this study conducted joint-specific analysis focusing on key positions:
+
+(Figure6参照) \emph{Figure6: Bias effects on the base joint (foundational stakeholder). Shows how fundamental policy actors respond differently to various bias types, with confirmation bias providing stability at the foundation level.}
+
+(Figure7参照) \emph{Figure7: Bias effects on the end-effector joint (final implementation stakeholder). Demonstrates how biases at the implementation level directly impact overall policy outcomes, with narrow framing showing the most pronounced negative effects.}
+
+The joint-specific analysis revealed that bias effects varied significantly depending on stakeholder position within the policy network. Base joints (foundational stakeholders) showed greater resilience to confirmation bias, while end-effector joints (implementation stakeholders) were more sensitive to narrow framing effects.
+
+\subsubsection{4.6 Summary of Experimental Findings}\label{summary-of-experimental-findings}
+
+(Figure8参照) \emph{Figure8: Comprehensive summary of bias effects across all experimental conditions with confidence intervals. This overview demonstrates the statistical significance and practical magnitude of each bias type's impact on policy coordination effectiveness.}
+
+\subsection{5. Institutional Design Framework for Effective Collaboration and Co-creation}\label{institutional-design-framework-for-effective-collaboration-and-co-creation}
+
+\subsubsection{5.1 Theoretical Foundation of Institutional Design}\label{theoretical-foundation-of-institutional-design}
+
+Based on empirical findings from Japan MaaS analysis and computational modeling results, a comprehensive institutional design framework is proposed that addresses the coordination challenges identified in both studies. This framework utilizes institutional design theory while incorporating insights about cognitive bias effects and democratic participation requirements.
+
+Key insights from the analysis indicate that effective collaboration and co-creation require institutional arrangements that enable leveraging the constructive potential of confirmation bias, managing the threshold effects of status quo bias, mitigating negative impacts of narrow framing, and ensuring democratic accountability while enabling operational efficiency.
+
+\subsubsection{5.2 Three-Tier Institutional Architecture}\label{three-tier-institutional-architecture}
+
+(Figure9参照) \emph{Figure9: Three-tier institutional design for effective collaboration. Institutional design for policy coordination that strategically leverages cognitive biases. The upper section shows the basic framework separating quality definition from implementation, while the lower section details specific mechanisms for managing administrative-business relationships through environmental design.}
+
+\paragraph{6.2.1 Tier 1: Political-Citizen Interface (Democratic Quality Setting)}\label{tier-1-political-citizen-interface-democratic-quality-setting}
+
+The first tier, the political-citizen interface, is responsible for ensuring democratic legitimacy and specifying quality standards. At its core, this tier aims to constructively leverage confirmation bias by fostering stakeholder confidence in shared quality objectives, while simultaneously maintaining a broad perspective to avoid narrow local optimization. This is achieved through structured citizen participation processes that define transport service quality objectives, as well as political oversight of administrative implementation supported by clear accountability mechanisms. Public deliberation on the trade-offs between efficiency, accessibility, and sustainability is also central, alongside the establishment of quality specification frameworks that provide clear direction yet retain interpretive flexibility. In practice, this tier is characterized by regular citizen assemblies or deliberative polls on transport priorities, transparent reporting on the achievement of quality objectives, clearly defined boundaries regarding the scope and authority of citizen participation, and integration with broader democratic governance structures.
+
+\paragraph{6.2.2 Tier 2: Administrative Coordination (Environmental Design)}\label{tier-2-administrative-coordination-environmental-design}
+
+The second tier, administrative coordination, translates quality objectives into operational frameworks. The guiding principle here is to manage status quo bias through incremental change approaches that remain below disruptive thresholds, while simultaneously developing the expertise necessary for effective multi-stakeholder coordination. This is accomplished by building specialized administrative capacity for stakeholder coordination and conflict resolution, implementing technical evaluation systems that incorporate both business and public value metrics, designing regulatory frameworks that foster competitive environments within quality constraints, and establishing performance monitoring and adjustment systems with effective feedback loops. The organizational structure supporting this tier includes specialized departments for collaborative governance staffed with appropriate expertise, buffer mechanisms to mediate between political and business pressures, structured processes for translating democratic input into operational guidance, and innovation incentives that are closely aligned with public objectives.
+
+\paragraph{6.2.3 Tier 3: Business-Operations Interface (Autonomous Implementation)}\label{tier-3-business-operations-interface-autonomous-implementation}
+
+The third tier, the business-operations interface, is tasked with the efficient provision of services within established quality frameworks. Here, the approach allows confirmation bias to support business confidence in quality-aligned operations, minimizes status quo bias through competitive pressure, and maintains a system-wide perspective via integrated performance measurement. This is realized through competitive processes for service provision that operate within quality constraints, quality-adjusted performance contracts that reward the creation of public value alongside efficiency, collaborative problem-solving processes to address operational challenges, and innovation incentives that promote public value creation. The framework is further supported by performance-based funding that rewards innovation, requirements for cross-sectoral coordination, the use of system-wide performance metrics, and the establishment of information-sharing platforms among stakeholder groups.
+
+\subsubsection{5.3 Interface Management Mechanisms}\label{interface-management-mechanisms}
+
+The management of interfaces between tiers is crucial for effective institutional design. At the political-administrative interface, the primary challenge is to translate democratic input into operational guidance without undermining administrative expertise or introducing excessive political interference. This is addressed by implementing structured quality specification processes that provide clear direction while maintaining interpretive flexibility. Key mechanisms include the use of quality frameworks that specify outcomes rather than processes, regular review cycles with sunset clauses to manage status quo bias, the preservation of professional administrative autonomy within democratically defined parameters, and transparent accountability mechanisms that enable political oversight without resorting to micromanagement.
+
+At the administrative-business interface, the challenge lies in balancing public objectives with operational efficiency, while also managing the risk that business interests may capture collaborative processes. The solution involves the adoption of competitive frameworks that reward quality achievement alongside efficiency, thereby aligning private interests with public objectives. This is operationalized through environmental design that makes quality-aligned behavior profitable, performance measurement systems that incorporate multiple dimensions of value, competitive pressures that prevent the entrenchment of status quo bias in service provision, and collaborative governance structures that facilitate joint problem-solving while maintaining robust accountability.
+
+\subsection{6. Discussion}\label{discussion}
+
+\subsubsection{6.1 Theoretical Implications}\label{theoretical-implications}
+
+The theoretical implications of this study span multiple dimensions. First, a reevaluation of cognitive biases was achieved by revealing constructive aspects of cognitive biases previously viewed negatively. Second, quantitative analysis methods were developed by enabling quantitative analysis through mathematical modeling of policy collaboration. Third, contributions to institutional design theory were made by presenting new theoretical frameworks for strategically leveraging biases in governance arrangements.
+
+\subsubsection{6.2 Practical Implications}\label{practical-implications}
+
+The practical implications encompass several important areas. Regarding application to policy formulation, the findings highlight the importance of policy design that considers cognitive biases as strategic resources rather than obstacles. For stakeholder management, the research demonstrates the value of relationship management methods tailored to specific bias characteristics of different stakeholder groups. Concerning institutional reform, the study indicates the need for gradual improvement strategies for existing institutions that work with rather than against predictable cognitive tendencies.
+
+\subsubsection{6.3 Research Limitations}\label{research-limitations}
+
+This study acknowledges several important limitations. The simulation environment represents a significant constraint, as computational modeling necessarily diverges from actual policy complexity. The bias modeling approach involves simplification of cognitive biases, which are more nuanced and context-dependent in real-world settings than parametric representations suggest. The validation scope is limited to regional public transport in Japan, which may limit generalizability to other policy areas or institutional contexts.
+
+\subsection{7. Conclusion}\label{conclusion}
+
+\subsubsection{7.1 Research Achievements}\label{research-achievements}
+
+This study analyzed collaborative mechanisms in regional public transport policy using robot arm coordination control simulation and produced several key findings. Quantitative evaluation of cognitive biases was accomplished by statistically verifying the effects of three cognitive biases on coordination performance through 1,820 controlled experiments. The constructive effects of certain biases were demonstrated through the coordination performance-maintaining effect of confirmation bias, challenging conventional assumptions about bias uniformly hindering policy implementation. A three-tier institutional design framework was developed that strategically leverages biases rather than simply attempting to eliminate them.
+
+\subsubsection{7.2 Future Research Agenda}\label{future-research-agenda}
+
+The future research agenda encompasses several critical directions. Empirical research represents a priority, requiring validation of the theoretical framework with actual policy cases to test the practical applicability of the computational findings. Model extension offers opportunities to explore the combined effects of more complex cognitive biases and their interactions in multi-stakeholder environments. International comparison research could examine the applicability of the institutional design framework in different cultural and institutional environments beyond Japan.
+
+\subsubsection{7.3 Policy Implications}\label{policy-implications}
+
+The policy implications of this study offer significant insights for governance practice. Strategic leverage of cognitive biases represents a paradigm shift toward utilizing rather than eliminating biases in institutional design, recognizing that certain biases can enhance rather than hinder coordination effectiveness. Gradual institutional reform emerges as a preferred approach, emphasizing incremental improvement strategies that avoid triggering counterproductive status quo bias responses. Continuous monitoring becomes essential, requiring regular evaluation and adjustment of institutional effects to maintain optimal bias management and stakeholder coordination over time.
+
+\subsection{Acknowledgements}\label{acknowledgements}
+
+\subsection{This document and experiment were supported by Claude Code / Gemini CLI. The idea for this document was inspired by Mr. Yuma Matsuda, CEO of OnGigants Inc, and feedback was received from the Japan Association for Planning and Public Administration.}\label{this-document-and-experiment-were-supported-by-claude-code-gemini-cli.-the-idea-for-this-document-was-inspired-by-mr.-yuma-matsuda-ceo-of-ongigants-inc-and-feedback-was-received-from-the-japan-association-for-planning-and-public-administration.}
+
+\subsection{References}\label{references}
+
+Abdoos, M. (2020). A Cooperative Multiagent System for Traffic Signal Control Using Game Theory and Reinforcement Learning. \emph{IEEE Intelligent Transportation Systems Magazine}, 13, 6-16.
+
+Acciarini, C., Brunetta, F., \& Boccardelli, P. (2020). Cognitive biases and decision-making strategies in times of change: a systematic literature review. \emph{Management Decision}.
+
+Adji, I., Sumaryadi, I., Djohan, D., \& Rowa, H. (2023). Collaborative Governance in the Management of Transportation Modes in DKI Jakarta Province. \emph{Jurnal Ilmiah Ilmu Administrasi Publik}.
+
+Ansell, C., \& Gash, A. (2008). Collaborative governance in theory and practice. Journal of Public Administration Research and Theory, 18(4), 543-571.
+
+Anand, A., Guha, D., \& Purwar, S. (2024). Cooperative Formation Control of the Multi-Agent System. 2024 IEEE 4th International Conference on Sustainable Energy and Future Electric Transportation (SEFET), 1-5.
+
+Bouraima, M., Oyaro, J., Ayyıldız, E., Erdogan, M., \& Maraka, N. (2023). An integrated decision support model for effective institutional coordination framework in planning for public transportation. \emph{Soft Computing}, 1-27.
+
+Briñón-Arranz, L., Seuret, A., \& Canudas-De-Wit, C. (2014). Cooperative Control Design for Time-Varying Formations of Multi-Agent Systems. \emph{IEEE Transactions on Automatic Control}, 59, 2283-2288.
+
+Council of Experts on Decentralization Reform. (2023). 地方分権改革有識者会議 報告書. {[}In Japanese{]}.
+
+Emerson, K., Nabatchi, T., \& Balogh, S. (2012). An integrative framework for collaborative governance. Journal of Public Administration Research and Theory, 22(1), 1-29.
+
+Fossheim, K., \& Andersen, J. (2022). The consequences of institutional design on collaborative arrangements' power to influence urban freight policymaking. \emph{Case Studies on Transport Policy}.
+
+Grimmelikhuijsen, S. G., Jilke, S., Olsen, A. L., \& Tummers, L. (2017). Behavioral public administration: Combining insights from public administration and psychology. \emph{Public Administration Review}, 77(1), 45-56.
+
+Gulzar, M., Rizvi, S., Javed, M., Munir, U., \& Asif, H. (2018). Multi-Agent Cooperative Control Consensus: A Comparative Review. \emph{Electronics}, 7, 22.
+
+He, F., N., Li, X., \& Liu, Z. (2023). A Review of Multi-Agent Collaborative Control. 2023 2nd International Conference on Artificial Intelligence, Human-Computer Interaction and Robotics (AIHCIR), 506-510.
+
+Hengster-Movrić, K., \& Lewis, F. (2014). Cooperative Optimal Control for Multi-Agent Systems on Directed Graph Topologies. \emph{IEEE Transactions on Automatic Control}, 59, 769-774.
+
+Hu, Y., Xu, Q., Field, B., Xia, B., \& Wu, G. (2024). Governing collaborative networks in mega transport projects development: Integrative findings from 34 cases worldwide. \emph{Transport Policy}.
+
+Kahneman, D. (2011). \emph{Thinking, fast and slow}. Farrar, Straus and Giroux.
+
+Kahneman, D., \& Lovallo, D. (1993). Timid choices and bold forecasts: A cognitive perspective on risk taking. \emph{Management Science}, 39(1), 17-31.
+
+Kato, H., Taniguchi, A., \& Osuga, K. (2009). Empirical analysis of feasibility and sustainability of community-participatory regional public transport service supply: A case study of ``Seikatsu Bus Yokkaichi''. \emph{Journal of Japan Society of Civil Engineers}, 65(4), 568-578. {[}In Japanese{]}.
+
+Kita, H. (2006). \emph{Development of regional public transport policy}. Seizando Shoten. {[}In Japanese{]}.
+
+Klijn, E. H., \& Koppenjan, J. F. M. (2012). Governance network theory: Past, present and future. \emph{Policy \& Politics}, 40(4), 587-606.
+
+Knoppen, D., Janjevic, M., \& Winkenbach, M. (2021). Prioritizing urban freight logistics policies: Pursuing cognitive consensus across multiple stakeholders. \emph{Environmental Science \& Policy}.
+
+Kyushu Regional Transport Bureau. (2023). アフターコロナ時代に向けた地域交通の共創に関する研究会 中間とりまとめ. {[}In Japanese{]}.
+
+Lan, X., Yan, J., He, S., Zhao, Z., \& Zou, T. (2023). Distributed cooperative reinforcement learning for multi-agent system with collision avoidance. \emph{International Journal of Robust and Nonlinear Control}, 34, 567-585.
+
+Mancheva, I., Pihlajamäki, M., \& Keskinen, M. (2023). Institutional accountability: the differentiated implementation of collaborative governance in two EU states. \emph{West European Politics}, 47, 619-644.
+
+Ministry of Land, Infrastructure, Transport and Tourism. (2022). 地域公共交通計画と乗合バス等の補助制度の連動化に関する解説パンフレット. {[}In Japanese{]}.
+
+Ministry of Land, Infrastructure, Transport and Tourism. (2025). 地域公共交通計画等の作成と運用の手引き 第4版 理念編. {[}In Japanese{]}.
+
+Nagata, U. (2024). Can ``Japan MaaS'' be understood as a type of ``Transport Town Planning''? A consideration of goals and governance. \emph{Journal of Japan Society of Civil Engineers}, 80(20), 24-20140. https://doi.org/10.2208/jscejj.24-20140 {[}In Japanese{]}.
+
+Nomura, Y. (2023). Efforts to secure regional transport using limited liability partnerships in Ichinohe Town. \emph{Transport Policy Studies}, 26(1), 45-52. {[}In Japanese{]}.
+
+Ostrom, E. (2005). \emph{Understanding institutional diversity}. Princeton University Press.
+
+Paulsson, A., Isaksson, K., Sørensen, C., Hrelja, R., Rye, T., \& Scholten, C. (2018). Collaboration in public transport planning -- Why, how and what?. \emph{Research in Transportation Economics}.
+
+Pierson, P. (2000). Increasing returns, path dependence, and the study of politics. \emph{American Political Science Review}, 94(2), 251-267.
+
+Rastogi, C., Zhang, Y., Wei, D., Varshney, K., Dhurandhar, A., \& Tomsett, R. (2020). Deciding Fast and Slow: The Role of Cognitive Biases in AI-assisted Decision-making. \emph{Proceedings of the ACM on Human-Computer Interaction}, 6, 1-22.
+
+Russo, J. E., \& Schoemaker, P. J. H. (1992). Managing overconfidence. \emph{Sloan Management Review}, 33(2), 7-17.
+
+Samuelson, W., \& Zeckhauser, R. (1988). Status quo bias in decision making. \emph{Journal of Risk and Uncertainty}, 1(1), 7-59.
+
+Shi, P., \& Shen, Q. (2015). Cooperative Control of Multi-Agent Systems With Unknown State-Dependent Controlling Effects. \emph{IEEE Transactions on Automation Science and Engineering}, 12, 827-834.
+
+Sterman, J. D. (2000). \emph{Business dynamics: Systems thinking and modeling for a complex world}. Irwin/McGraw-Hill.
+
+Watkins, S., \& Musselwhite, C. (2025). Recognised cognitive biases: How far do they explain transport behaviour?. \emph{Journal of Transport \& Health}.
+
+Yang, Z., N., \& Yao, Y. (2023). A Survey on Cooperative Control of Multi-Agent Systems. 2023 2nd International Conference on Artificial Intelligence, Human-Computer Interaction and Robotics (AIHCIR), 511-515.
+
+Voorberg, W. H., Bekkers, V. J. J. M., \& Tummers, L. G. (2015). A systematic review of co-creation and co-production: Embarking on the social innovation journey. Public Management Review, 17(9), 1333-1357.
+
+Yoshida, T. (2021). Effect analysis of bus route reorganization through inter-operator collaboration in Hachinohe City. \emph{Transport Studies}, 64, 123-130. {[}In Japanese{]}.
+
+Yoshihara, Y., Makino, H., Tomita, N., \& Yano, K. (2009). Does real-time optimization of joint mobility generate globally optimal arm movements? \emph{Transactions of the Society of Instrument and Control Engineers}, 45(11), 570-577. {[}In Japanese{]}.
+
+Y., Liu, Y., Zhao, L., \& Zhao, M. (2022). A Review on Cooperative Control Problems of Multi-agent Systems. 2022 41st Chinese Control Conference (CCC), 4831-4836.
+
+\subsection{和文要旨}\label{ux548cux6587ux8981ux65e8}
+
+本研究は、協調的交通政策実装における認知バイアス効果を分析する計算モデリング枠組みを開発し、効果的な利害関係者調整のための制度設計原則を提案する。協調ロボット制御理論を用いて、各エージェントが特定の能力と立場を持つ政策利害関係者を表現する政策ネットワークにおける利害関係者相互作用をモデル化した。体系的シミュレーション実験により、確証バイアス、現状維持バイアス、狭枠バイアスの3つの主要認知バイアスが協調ガバナンスの調整効果に与える影響を分析した。計算分析により、確証バイアスは適切に活用されれば協調効果を逆説的に向上させ、現状維持バイアスは慎重な制度管理を要する閾値効果を生み出すことが明らかになった。これらの知見に基づき、民主的説明責任と運営効率を最適化する3層制度アーキテクチャを提案する。
+
+\textbf{和文キーワード}: 公共交通政策　連携/共創　組織デザイン　認知バイアス　不良設定問題
+
+\subsection{図表}\label{ux56f3ux8868}
+
+Table1: Summary Table: Principles and Empirical Insights
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1849}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3024}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5126}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Principle
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mechanism/Framework
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Empirical Insight (Citation)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Inclusiveness & Broad stakeholder participation & Increases power to influence policy (Fossheim \& Andersen, 2022) \\
+Accountability & Clear rules, transparency, delegation & Enhances trust and legitimacy (Adji et al., 2023; Mancheva et al., 2023) \\
+Coordination & Multi-level network governance & Improves alignment and integration (Hu et al., 2024; Paulsson et al., 2018) \\
+Efficiency & Streamlined, context-specific frameworks & Reduces fragmentation, speeds implementation (Bouraima et al., 2023; Hu et al., 2024) \\
+Stakeholder Engagement & Regular dialogue and consultation & Builds trust, ownership, and cooperation (Adji et al., 2023; Paulsson et al., 2018) \\
+\end{longtable}
+}
+
+\subsubsection{\texorpdfstring{ Figure 1: Simulation Process Flow for Stakeholder Coordination}{ Figure 1: Simulation Process Flow for Stakeholder Coordination}}\label{figure-1-simulation-process-flow-for-stakeholder-coordination}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=3.56084in,alt={Figure 13: Simulation Process Flow for Stakeholder Coordination}]{media/image33.png}
+\caption{Figure 1: Simulation Process Flow for Stakeholder Coordination}
+\end{figure}
+
+\subsubsection{Figure 2: Robot Arm Animation Scenarios for Policy Analysis}\label{figure-2-robot-arm-animation-scenarios-for-policy-analysis}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=5.53385in,alt={Figure 12: Robot Arm Animation Scenarios for Policy Analysis}]{media/image34.png}
+\caption{Figure 2: Robot Arm Animation Scenarios for Policy Analysis}
+\end{figure}
+
+\subsubsection{Figure 3: Constructive Effect of Confirmation Bias}\label{figure-3-constructive-effect-of-confirmation-bias}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=3.29182in,alt={Figure 2: Constructive Effect of Confirmation Bias}]{media/image35.png}
+\caption{Figure 3: Constructive Effect of Confirmation Bias}
+\end{figure}
+
+\subsubsection{Figure 4: Threshold Effect of Status Quo Bias}\label{figure-4-threshold-effect-of-status-quo-bias}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=3.30155in,alt={Figure 3: Threshold Effect of Status Quo Bias}]{media/image36.png}
+\caption{Figure 4: Threshold Effect of Status Quo Bias}
+\end{figure}
+
+\subsubsection{Figure 5: Linear Degradation of Narrow Framing Bias}\label{figure-5-linear-degradation-of-narrow-framing-bias}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=3.30155in,alt={Figure 4: Linear Degradation of Narrow Framing Bias}]{media/image37.png}
+\caption{Figure 5: Linear Degradation of Narrow Framing Bias}
+\end{figure}
+
+\subsubsection{Figure6: Joint 0 (Base) Bias Effects}\label{figure6-joint-0-base-bias-effects}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=5.83333in,alt={Figure 8: Joint 0 (Base) Bias Effects}]{media/image38.png}
+\caption{Figure6: Joint 0 (Base) Bias Effects}
+\end{figure}
+
+\subsubsection{Figure7: Joint 7 (End-Effector) Bias Effects}\label{figure7-joint-7-end-effector-bias-effects}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=5.83333in,alt={Figure 9: Joint 7 (End-Effector) Bias Effects}]{media/image39.png}
+\caption{Figure7: Joint 7 (End-Effector) Bias Effects}
+\end{figure}
+
+\subsubsection{Figure8: Summary of All Bias Effects}\label{figure8-summary-of-all-bias-effects}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=2.31574in,alt={Figure 10: Summary of All Bias Effects}]{media/image40.png}
+\caption{Figure8: Summary of All Bias Effects}
+\end{figure}
+
+\subsubsection{Figure9: Three-Tier Institutional Design for Effective Collaboration}\label{figure9-three-tier-institutional-design-for-effective-collaboration}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.83333in,height=4.67974in,alt={Figure 11: Three-Tier Institutional Design for Effective Collaboration}]{media/image41.png}
+\caption{Figure9: Three-Tier Institutional Design for Effective Collaboration}
+\end{figure}
