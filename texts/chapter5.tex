@@ -43,8 +43,12 @@
 
 本論文の構成は以下の通りである。第2章では、ZK-SNARKsの技術的基礎とその政策評価への適用可能性を検討する。第3章では、Constitutional AIとLLM as a Judgeの技術的特性を整理し、政策評価における役割を明らかにする。第4章では、提案するシステムアーキテクチャを詳述し、技術統合の方法論を示す。第5章では、期待される効果と今後の展望を論じる。
 
-% 図1：本研究の全体像 - 市民討議、ZK-SNARKs、Constitutional AIの統合アーキテクチャ
-% （画像ファイル未作成）
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/research_overview.png}
+\caption{本研究の全体像 - 市民討議、ZK-SNARKs、Constitutional AIの統合アーキテクチャ}
+\label{fig:ch5_overview}
+\end{figure}
 
 \section{ZK-SNARKsと秘匿証明}
 \label{sec:ch5_zksnarks}
@@ -63,7 +67,12 @@ Arguments of Knowledge（知識の論証）特性は、証明者が本当にそ�
 
 これらの4つの特性は、楕円曲線暗号などの数学的基盤により実現される。特に、楕円曲線上の離散対数問題の計算困難性に基づくペアリング演算を利用することで、効率的な証明生成と検証が可能となる。Groth（2016）により提案されたGroth16方式は、現在最も効率的なZK-SNARKs実装の一つであり、証明サイズが128バイト、検証時間が数ミリ秒という実用的な性能を達成している。
 
-% 図：ZK-SNARKsの4つの特性
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/zk_snarks_properties.png}
+\caption{ZK-SNARKsの4つの本質的特性}
+\label{fig:ch5_zk_properties}
+\end{figure}
 
 \subsection{政策提案への適用可能性}\label{ux653fux7b56ux63d0ux6848ux3078ux306eux9069ux7528ux53efux80fdux6027}
 
@@ -71,9 +80,14 @@ ZK-SNARKsの秘匿証明特性は、政策提案における秘密情報保護�
 
 具体的には、提案者が保有する技術データ、研究成果、実証実験の結果などを秘密情報として扱い、これらの情報を含む政策提案をシステムに提出する。ZK-SNARKsの秘匿化処理により、秘密情報はLLMの評価に使用されるが、外部には一切漏らさない。証明プロセスにより、提案に含まれる計算結果（例：「CO2を30\%削減できる」）が実際に秘密情報に基づいて正しく導出されたことを、秘密情報を開示することなく証明できる。検証者は、証明を検証することで、提案の計算結果が秘密データに基づいて正しいことを確認できるが、秘密データの詳細にはアクセスできない。
 
-この仕組みにより、企業は競争優位性を損なうことなく具体的な技術データを含む政策提案を提出でき、研究機関は未公開の研究成果を保護しながら科学的根拠を含む提案を行うことができる。また、個人は経験知やノウハウといった暗黙知を秘匿しながら、その知見に基づく提案を行うことができる。この結果、従来は抽象的な提案しかできなかった多様なステークホルダーが、具体的根拠を持つ高品質な政策提案を提出することが可能となり、政策の質と実効性が向上する。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/zk_snarks_concept.png}
+\caption{ZK-SNARKsによる秘匿証明の概念}
+\label{fig:ch5_zk_concept}
+\end{figure}
 
-% 図：ZK-SNARKsによる秘匿証明の概念
+この仕組みにより、企業は競争優位性を損なうことなく具体的な技術データを含む政策提案を提出でき、研究機関は未公開の研究成果を保護しながら科学的根拠を含む提案を行うことができる。また、個人は経験知やノウハウといった暗黙知を秘匿しながら、その知見に基づく提案を行うことができる。この結果、従来は抽象的な提案しかできなかった多様なステークホルダーが、具体的根拠を持つ高品質な政策提案を提出することが可能となり、政策の質と実効性が向上する。
 
 さらに、ZK-SNARKsの非対話特性により、評価者は自身の都合の良いタイミングで証明を生成し、非同期的に提出できる。これにより、時間的・空間的制約を受けずに大規模な参加型評価を実現できる。Succinct特性により、証明サイズが小さく保たれるため、ネットワーク帯域や保存容量の制約も最小限に抑えられる。
 
@@ -91,10 +105,6 @@ STARKsの根本的特徴は、Trusted Setupを必要としないUniversal性に�
 
 ただし、Trusted Setupのプロセスには慎重な設計が必要である。複数の独立した参加者によるマルチパーティ計算（MPC）を用いることで、単一の参加者が秘密鍵を保持するリスクを排除できる。実際に、Zcashプロジェクトでは2016年のSprout ceremony（6人）から2018年のSapling ceremony（90人）へと参加者を拡大し、Tornado.cashはブラウザベースの参加を可能にすることで1,114人の参加者を集めた（Buterin, 2022）。さらに、2023年に開始されたEthereum KZG Ceremonyは約95,000件の貢献を集め、史上最大規模のTrusted Setup ceremonyとなった（Ethereum Foundation, 2023）。これらの実績により、実用上の安全性は十分に確保できることが示されている。
 
-% 図：ZK-SNARKsとSTARKsの比較
-
-
-
 \section{Constitutional AIとLLM as a Judge}\label{constitutional-aiux3068llm-as-a-judge}
 
 \subsection{LLM as a Judgeの概念と発展}\label{llm-as-a-judgeux306eux6982ux5ff5ux3068ux767aux5c55}
@@ -107,7 +117,12 @@ Wang et al.（2024-2025）は、LLMベースの評価手法を体系的に整理
 
 政策評価への応用という観点では、LLM as a Judgeは以下の特性により有用である。第一に、大量の政策提案を効率的に処理できる。人間の評価者では処理しきれない規模の提案に対しても、一貫した基準で迅速な評価が可能である。第二に、多様な視点からの評価を統合できる。複数の評価基準を同時に考慮し、それらのバランスを取りながら総合的な判断を行う。第三に、評価プロセスの透明性を確保できる。評価理由を自然言語で説明することで、評価結果の解釈可能性が向上する。
 
-% 図：LLM as a Judgeの概念
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/llm_judge_concept.png}
+\caption{LLM as a Judgeの概念 - 大規模言語モデルによる評価の枠組み}
+\label{fig:ch5_llm_judge}
+\end{figure}
 
 \subsection{LLM as a Judgeの限界と課題}\label{llm-as-a-judgeux306eux9650ux754cux3068ux8ab2ux984c}
 
@@ -135,7 +150,12 @@ Constitutional AIの重要な特徴は、訓練時に組み込まれた憲法的
 
 政策評価への応用という観点では、Constitutional AIは以下の利点を提供する。第一に、公平性、透明性、プライバシー保護といった政策評価に必要な倫理的原則を、訓練時に明示的に組み込むことができる。第二に、市民討議という民主的プロセスで合意された判断基準をLLMに内在化させることで、評価基準に民主的正当性を付与できる。第三に、評価理由の説明において、憲法的原則への言及を通じて、評価の透明性と説明責任を向上させることができる。
 
-% 図：Constitutional AIの訓練プロセス
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/constitutional_ai_process.png}
+\caption{Constitutional AIの訓練プロセス - 憲法的原則に基づく自己改善}
+\label{fig:ch5_constitutional_ai}
+\end{figure}
 
 \subsection{Constitutional AI訓練によるLLM as a Judgeの実現}\label{constitutional-aiux8a13ux7df4ux306bux3088ux308bllm-as-a-judgeux306eux5b9fux73fe}
 
@@ -167,7 +187,12 @@ RLフェーズでは、複数の評価候補を生成し、それらを憲法的
 
 このアーキテクチャの特徴は、市民討議による原則策定、Constitutional AI訓練、LLM as a Judgeによる運用という一貫したフローにある。市民と研究者が討議を通じて定めた原則がConstitutional AI訓練の基盤となり、その訓練によりLLMに内在化された倫理的制約と専門的判断基準が運用時の自律的判断を導く。外部からの継続的な監視や介入を必要とせず、民主的に策定された原則に基づいてLLMが評価を行う。この仕組みは、楕円曲線暗号がZK-SNARKsの数学的安全性を基盤として保証するように、市民討議とConstitutional AIがLLMの民主的正当性と専門性を基盤として保証することに類似している。
 
-% 図：システムの統合アーキテクチャ
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/integration_architecture.png}
+\caption{システムの統合アーキテクチャ - 人間層、訓練層、運用層の3層構造}
+\label{fig:ch5_integration}
+\end{figure}
 
 \subsection{ZK-SNARKs秘匿証明特性のLLM実装：秘密情報の秘匿化処理}\label{zk-snarksux79d8ux533fux8a3cux660eux7279ux6027ux306ellmux5b9fux88c5ux79d8ux5bc6ux60c5ux5831ux306eux79d8ux533fux5316ux51e6ux7406}
 
@@ -221,7 +246,12 @@ TEEの重要な特性は、Remote Attestation（遠隔証明）機能である�
 
 このフローにより、市民参加による民主的正当性の確保、秘密情報を含む政策提案の実現、専門的価値観に基づく評価、自治体・行政による説明責任の強化という4つの目標が達成される。
 
-% 図：ステークホルダージャーニー
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/stakeholder_journey.png}
+\caption{ステークホルダージャーニー - 準備段階、評価段階、決定段階の運用フロー}
+\label{fig:ch5_stakeholder}
+\end{figure}
 
 
 
@@ -273,8 +303,12 @@ TEEの重要な特性は、Remote Attestation（遠隔証明）機能である�
 
 本システムにより、市民参加による民主的正当性の確保、秘密情報を含む政策提案の実現、専門的評価、公平性確保、自治体・行政による説明責任向上を同時に達成し、奥田（2019）らが指摘する「ステークホルダーの合意調達と、柔軟かつ迅速な専門知・実践知の調達・適用」の連動を、秘密情報を保護しながら実現することを目指す。今後は、TEE環境での運用可能性の検証、決定論的運用の有効性実証、市民討議プロセスの設計、技術的実装の詳細設計、実証実験による有効性検証、法的・制度的課題の整理を通じて、真に実用的な政策対話インフラの社会実装を目指す。
 
-% 図：制度的フレームワークの目的
-\emph{図9：提案する政策対話インフラの4つの目的}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/ch5/framework_objectives.png}
+\caption{提案する政策対話インフラの4つの目的}
+\label{fig:ch5_framework}
+\end{figure}
 
 
 
