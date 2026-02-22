@@ -245,8 +245,12 @@ $$M_{smoothness} = \frac{1}{n} \sum_i \frac{1}{\int |\ddot{\theta}_i(t)| dt}$$
 % -----------------------------------------------------------------------------------------------------------------------------------------
 \subsection{シミュレーション実装プロセス}
 
-% （図：シミュレーションプロセスフロー）
-% 図1：ステークホルダー調整をロボットアーム制御を通じて分析するための6段階の方法論を示す包括的なシミュレーションプロセスフロー。プロセスには、初期設定、バイアス適用、制御実行、パフォーマンス評価、統計分析、政策含意の導出が含まれる。このフレームワークにより、ランダム化された条件での1,820回の実験の体系的な分析が可能になる。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/ch4/robot_arm_simulation_process_jp_final.png}
+\caption{ステークホルダー調整をロボットアーム制御を通じて分析するための6段階の方法論を示すシミュレーションプロセスフロー}
+\label{fig:ch4_simulation_process}
+\end{figure}
 
 % -----------------------------------------------------------------------------------------------------------------------------------------
 \section{実験設計}
@@ -264,8 +268,12 @@ $$M_{smoothness} = \frac{1}{n} \sum_i \frac{1}{\int |\ddot{\theta}_i(t)| dt}$$
 
 決定論的結果を避けるため、本研究では初期条件をランダム化した実験設計を実装した。
 
-% （図：4つの主要なアニメーションシナリオ）
-% 図2：異なる認知バイアスがステークホルダー調整パターンにどのように影響するかを示す4つの主要なアニメーションシナリオ。各シナリオは異なる関節構成と目標到達行動を示す：(a)バイアスのない通常動作、(b)政策目標へのフォーカスを促進する確証バイアス、(c)既存のアプローチを維持する現状維持バイアス、(d)システム全体の視野を制限する狭い視野。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/ch4/robot_arm_animation_scenarios_jp_final.png}
+\caption{異なる認知バイアスがステークホルダー調整パターンにどのように影響するかを示すアニメーションシナリオ}
+\label{fig:ch4_animation_scenarios}
+\end{figure}
 
 各実験は統計的有効性を確保するために複数のランダム化パラメータを組み込んだ。初期関節角度は±0.1ラジアンの範囲で変化させ、目標位置は中心から±0.01m、半径変動±0.005mの範囲で変化させ、制御ゲインは±0.5の範囲で変化させ、切り替え閾値は±0.002の範囲で変化させた。
 
@@ -297,22 +305,45 @@ $$M_{smoothness} = \frac{1}{n} \sum_i \frac{1}{\int |\ddot{\theta}_i(t)| dt}$$
 % -----------------------------------------------------------------------------------------------------------------------------------------
 \subsection{包括的バイアス効果分析}
 
-% （図3：確証バイアスの建設的効果）
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/ch4/confirmation_bias_constructive_effect_fixed.png}
+\caption{確証バイアスの建設的効果：調整パフォーマンスへの影響}
+\label{fig:ch4_confirmation_bias}
+\end{figure}
 
-% （図4：現状維持バイアスの閾値効果）
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/ch4/status_quo_threshold_effect_fixed.png}
+\caption{現状維持バイアスの閾値効果：強度0.25前後での急激な変化}
+\label{fig:ch4_status_quo_bias}
+\end{figure}
 
-% （図5：狭い視野バイアスの線形劣化）
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/ch4/narrow_framing_linear_degradation_fixed.png}
+\caption{狭い視野バイアスの線形劣化：一貫した負の影響}
+\label{fig:ch4_narrow_framing}
+\end{figure}
 
 % -----------------------------------------------------------------------------------------------------------------------------------------
 \subsection{関節別分析}
 
 政策ネットワーク内の異なるステークホルダー位置がバイアスからどのような影響を受けるかを理解するため、本研究では主要な位置に焦点を当てた関節別分析を実施した。
 
-% （図6：基部関節（基礎ステークホルダー）へのバイアス効果）
-% 図6：基部関節（基礎ステークホルダー）へのバイアス効果。基本的な政策アクターが様々なバイアスタイプにどのように異なる反応を示すかを示し、確証バイアスが基礎レベルで安定性を提供することがわかる。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/ch4/joint_0_bias_effects.png}
+\caption{基部関節（基礎ステークホルダー）へのバイアス効果}
+\label{fig:ch4_joint0}
+\end{figure}
 
-% （図7：エンドエフェクタ関節（最終実装ステークホルダー）へのバイアス効果）
-% 図7：エンドエフェクタ関節（最終実装ステークホルダー）へのバイアス効果。実装レベルでのバイアスが全体的な政策成果に直接影響を与える方法を示し、狭い視野が最も顕著な負の効果を示している。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figure/ch4/joint_7_bias_effects.png}
+\caption{エンドエフェクタ関節（最終実装ステークホルダー）へのバイアス効果}
+\label{fig:ch4_joint7}
+\end{figure}
 
 関節別分析により、バイアス効果は政策ネットワーク内のステークホルダー位置によって大きく異なることが明らかになった。基部関節（基礎ステークホルダー）は確証バイアスに対してより高い耐性を示し、エンドエフェクタ関節（実装ステークホルダー）は狭い視野効果に対してより敏感であった。
 
@@ -341,8 +372,12 @@ Japan MaaS分析と計算論的モデリングの結果に基づき、両方の�
 % -----------------------------------------------------------------------------------------------------------------------------------------
 \subsection{三層制度アーキテクチャ}
 
-% （図9：効果的な協調のための三層制度設計）
-% 図9：効果的な協調のための三層制度設計。認知バイアスを戦略的に活用する政策調整のための制度設計。上部は品質定義と実装を分離する基本フレームワークを示し、下部は環境設計を通じて行政・事業関係を管理するための具体的なメカニズムを詳述している。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/ch4/three_tier_institutional_design_improved.png}
+\caption{効果的な協調のための三層制度設計}
+\label{fig:ch4_three_tier}
+\end{figure}
 
 \paragraph{第一層：政治-市民インターフェース（民主的品質設定）}
 
