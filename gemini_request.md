@@ -49,3 +49,44 @@
   - `RobotArmProject/docs/final_papers/academic_paper_final.md`
   - `publictransportplan/公共交通計画分析レポート_執筆要綱版.md` （地域公共交通計画の分析）
   - `Presentations_Archive/第1章.pdf`, `Presentations_Archive/「地域公共交通政策」の存立理由...pdf` （必要に応じて内容確認）
+
+## 参考文献の統合・整理方針 (予定: 2026年10月)
+
+### 現在の課題（Biberの重複警告エラーについて）
+現状の `main.tex` では、以下のように章ごとに分割された7つの参考文献ファイル（`.bib`）をすべてグローバルに読み込んでいます。
+```latex
+\addbibresource{./refs/ref_ch1.bib}
+\addbibresource{./refs/ref_ch2.bib}
+\addbibresource{./refs/ref_ch3.bib}
+\addbibresource{./refs/ref_ch4.bib}
+\addbibresource{./refs/ref_ch5.bib}
+\addbibresource{./refs/ref_ch6.bib}
+\addbibresource{./refs/ref_ch7.bib}
+```
+しかし、ルーマン（luhmann1984）やカーネマン（kahneman2011thinking）などの主要な文献は複数の章で横断的に引用されているため、**異なる `.bib` ファイル間で同一の引用キー（Duplicate entry key）が大量に重複して定義**されています。
+これによりコンパイル時にBiberから18件もの警告が発生しており、ある文献の書誌情報を修正した際に他の `.bib` ファイルへの修正が漏れるなど、データの不整合が起きやすい保守性の低い状態（酷い置き方）になっています。
+
+### 対応方針（章末に参考文献を配置するための設定手順）
+2026年10月の編集時期において、論文のルールを「各章の章末に参考文献を記載する」形式に統一するため、以下の手順で抜本的に整理します。
+
+1. **マスター書誌ファイルの作成 (データの完全一元化)**
+   - 章ごとに参考文献を出力する場合でも、**`.bib` ファイル自体は文書全体で1つのマスターファイル（例: `refs/main.bib`）に統合する**のが `biblatex` におけるベストプラクティスです。
+   - 統合の過程で重複しているBibTeXキーを名寄せ・削除し、各文献の定義が文書全体で必ず1つだけになるようにクレンジングを行います（これによってBiberの警告エラーが完全に消滅します）。
+
+2. **`main.tex` のプリアンブル設定変更（`refsection` の導入）**
+   - 7行あった章ごとの `\addbibresource` の記述を廃止し、統合したマスターファイルだけを読み込むように変更します。
+   - 同時に、`biblatex` のパッケージオプションに `refsection=chapter` を追加します。これにより、LaTeXは「章（chapter）ごとに独立した参考文献リスト」を自動的に認識するようになります。
+   ```latex
+   \usepackage[style=numeric,sorting=none,backend=biber,refsection=chapter]{biblatex}
+   \addbibresource{./refs/main.bib}
+   ```
+
+3. **出力コマンド（`\printbibliography`）の配置変更**
+   - 現在 `main.tex` の巻末（181行目付近）にある `\printbibliography[title={参考文献}]` を**削除**します。
+   - 代わりに、各章のファイル（`texts/chapter1.tex` 〜 `texts/chapter7.tex`）の末尾に、以下のコマンドをそれぞれ追記します。
+   ```latex
+   \printbibliography[heading=subbibliography,title={章末参考文献}]
+   ```
+
+4. **旧ファイルの退避**
+   - 不要になった `ref_ch1.bib` 〜 `ref_ch7.bib` は、以後の混乱を避けるために `archive` フォルダ等に退避させます。
