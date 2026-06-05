@@ -1,4 +1,4 @@
-% Chapter 1 only — standalone compile
+% 第1章プレビュー用スタンドアロンファイル
 \documentclass[11pt,a4paper]{report}
 
 \usepackage{luatexja}
@@ -9,26 +9,27 @@
 
 \usepackage{amsmath,amssymb,amsfonts,bm}
 \usepackage{fancyhdr}
-\usepackage{sectsty}
 \usepackage{indentfirst}
 \usepackage[centering,margin=25mm]{geometry}
-\usepackage{here}
 \usepackage{setspace}
-\usepackage{tabularx,booktabs,multirow,longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage[colorlinks=true,linkcolor=blue,anchorcolor=magenta,citecolor=blue,urlcolor=blue]{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{shapes,arrows,positioning,calc}
-\usepackage{float,caption,subcaption,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{enumitem}
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 \newcommand{\highlight}[1]{\colorbox{yellow}{#1}}
 
-\graphicspath{{./figure/}{./figure/ch1/}{./figure/ch2/}{./figure/ch3/}{./figure/ch4/}{./figure/ch5/}{./figure/ch6/}{./figure/ch7/}}
+\graphicspath{{./figure/}{./figure/ch1/}}
 
 \parindent=1em
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
@@ -39,7 +40,5 @@
 \pagenumbering{arabic}
 
 \input{./texts/chapter1.tex}
-
-\printbibliography[heading=bibintoc]
 
 \end{document}
