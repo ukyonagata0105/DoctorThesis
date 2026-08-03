@@ -1,19 +1,19 @@
-# 章番号とファイル対応（2026-06-06 改訂）
+# 章番号とファイル対応（2026-08-03 改訂）
 
-政策のメタネイチャーを主眼に据えた構成。診断章→RQ1→RQ2→RQ3の順で読めるよう再配置。
+地域公共交通政策の診断から、生成AIと人間の役割境界、認知的制約下の協調、Verdictの設計・部分的実証、制度設計へ進む現行構成。
 
 | 章 | ファイル | 内容 | 図ディレクトリ |
 |----|----------|------|----------------|
-| 第1章 | `texts/chapter1.tex` | 序論：政策のメタネイチャー | — |
-| 第2章 | `texts/chapter4.tex` | 公共交通政策におけるメタネイチャー未達の診断 | `figure/ch4/` |
-| 第3章 | `texts/chapter5.tex` | 地域公共交通政策のパーパス設定 | `figure/ch5/` |
-| 第4章 | `texts/chapter6.tex` | 評価指標の同型化 | `figure/`（ルートPNG） |
-| 第5章 | `texts/chapter2.tex` | 生成AI時代の政策規範（RQ1） | `figure/ch2/` |
-| 第6章 | `texts/chapter3.tex` | 認知バイアスと協調的ガバナンス（RQ2） | `figure/ch3/` |
-| 第7章 | `texts/chapter7.tex` | メタネイチャー的政策生成システムの設計（RQ3） | `figure/ch7/` |
-| 第8章 | `texts/chapter8.tex` | Verdictによる実証計画 | — |
-| 第9章 | `texts/chapter9.tex` | 制度設計への示唆 | — |
-| 第10章 | `texts/chapter10.tex` | 結論：都市計画への展開 | — |
+| 第1章 | `texts/chapter1.tex` | 序論 | `figure/ch1/` |
+| 第2章 | `texts/chapter4.tex` | 舞台としての公共交通政策：現状と課題（RQ1） | `figure/ch4/` |
+| 第3章 | `texts/chapter5.tex` | 地域公共交通政策のパーパス設定（RQ1） | `figure/ch5/` |
+| 第4章 | `texts/chapter6.tex` | 評価指標の運輸局間比較分析（RQ1） | `figure/`（ルートPNG） |
+| 第5章 | `texts/chapter2.tex` | 生成AI時代の政策規範（RQ2） | `figure/ch2/` |
+| 第6章 | `texts/chapter3.tex` | 拒否権プレーヤーの認知バイアスと協調的ガバナンス（RQ3） | `figure/ch3/` |
+| 第7章 | `texts/chapter7.tex` | 秘密保護と民主的正当性を両立する政策評価システムの設計（RQ4） | `figure/ch7/` |
+| 第8章 | `texts/chapter8.tex` | Verdictによる実証：公共的価値の接続とフィールド実験計画（RQ4） | — |
+| 第9章 | `texts/chapter9.tex` | メタ・ネイチャーが公共政策に及ぶ場合の制度設計 | — |
+| 第10章 | `texts/chapter10.tex` | 結論：政策形成における人工環境の作用と統治 | — |
 
 旧構成からの移動:
 - 旧第2章 → 新第5章

@@ -1,6 +1,7 @@
 # 博士論文 章別ソース地図
 
 作成日: 2026-07-06
+最終監査日: 2026-08-03
 
 このファイルは、`doctorthesis` の各章が、ワークスペース内のどの研究フォルダ・論文個別ファイル・実験フォルダを主な素材としているかを整理する地図である。既存の `CHAPTER_MAPPING.md` は章番号とTeXファイルの対応表、`notes/FILE_MAPPING.md` は初期7章構成時代の古い対応表なので、現在の10章構成に合わせて更新した。
 
@@ -8,22 +9,22 @@
 
 - 「主ソース」は、その章の骨格または実証データの出所。
 - 「補助ソース」は、背景説明、図、先行議論、レビュー対応などで参照すべき素材。
-- 「反映状態」は、2026-07-06時点での概略。個別論文側が更新されている場合は、本文に追いついているかを別途確認する。
+- 「反映状態」は、2026-08-03の章別監査後の概略。個別論文側が更新された場合は、本文に追いついているかを別途確認する。
 
 ## 章別マップ
 
 | 章 | 博論ファイル | 章の役割 | 主ソース | 補助ソース | 反映状態・注意 |
 |---|---|---|---|---|---|
 | 第1章 | `texts/chapter1.tex` | 序論、政策のメタ・ネイチャー、課題設定 | 博論内で新規統合作成 | `THESIS_PLAN.md`, `CHAPTER_MAPPING.md`, 各章本文 | 2026-07-06にメタネイチャー、知識接続、生成AIスロップ化リスク、第8章の更新を反映済み。 |
-| 第2章 | `texts/chapter4.tex` | 公共交通政策におけるメタネイチャー未達の診断、日本版MaaS | `My_Papers/日本版MaaS_交通まちづくり_考察.md` | `Research_JCoMaaS/thesis_written/`, `doctorthesis/texts/maas_*.tex`, `doctorthesis/texts/chapter4_full.tex` | 旧MaaS論文由来。現在の章題上は「第2章」だが、ファイル名は旧構成の `chapter4.tex`。 |
+| 第2章 | `texts/chapter4.tex` | 日本版MaaSを用いた地域目標・参加経路の診断 | `My_Papers/日本版MaaS_交通まちづくり_考察.md` | `Research_JCoMaaS/thesis_written/`, `doctorthesis/texts/maas_*.tex`, `doctorthesis/texts/chapter4_full.tex` | 2026-08-03監査済み。本文集計は38事業、図表は後年の支援一覧36事業で母集団が異なる。38事業の事業別再現表と2022年ヒアリング記録は要補強。 |
 | 第3章 | `texts/chapter5.tex` | 地域公共交通政策のパーパス設定、活性化・再生法運用問題 | `Research_Purpose_transport/purpose_transport.tex` | `Research_Regional_Transport_Governance/thesis_written/Revitalization_Admin_Paper/`, 自治体アンケートdocx群 | 章冒頭に Source コメントあり。3自治体インタビュー、北海道・東北運輸局管内42自治体アンケートの反映章。 |
-| 第4章 | `texts/chapter6.tex` | 地域公共交通計画の評価指標の同型化、987自治体・12,568指標 | `publictransportplan/ptp_final/` | `publictransportplan/ptp_final/manuscript_sources/公共交通計画分析_JES_short.tex`, `publictransportplan/ptp_final/analysis_data/`, `Research_LLMBunruiki/classifier_final/` | 本文は概ね反映済み。ただしコンパイル時に `bureau_*png` の図欠落が残っている。 |
-| 第5章 | `texts/chapter2.tex` | 生成AI時代の政策規範、創造システム・社会システム理論、AIの限界 | `Research_AI_Policy/thesis_written/Human_Policy_Paper/executive_creativity_v2.tex` | `Research_AI_Policy/thesis_written/Human_Policy_Paper/Policyinfomatics/`, `Research_AI_Policy/thesis_written/LLM_Planning_Paper/`, `Research_CARATS/analysis_nextgen/` | `THESIS_PLAN.md`上では反映済み。アクティブ草稿は `executive_creativity_v2.tex` 系、提出済みWord群は別系統として扱う。 |
-| 第6章 | `texts/chapter3.tex` | 認知バイアスと協調的ガバナンスの計算論的分析 | `RobotArmProject/issj_paper/issj_paper.tex` | `RobotArmProject/docs/final_papers/academic_paper_final.md`, `RobotArmProject/results/`, `RobotArmProject/src/` | 章冒頭に Source コメントあり。22,000回シミュレーション、確証バイアス・現状維持・狭い視野の結果を反映。 |
+| 第4章 | `texts/chapter6.tex` | 地域公共交通計画の評価指標の運輸局間比較、987自治体・12,568指標 | `publictransportplan/ptp_final/` | `publictransportplan/ptp_final/manuscript_sources/公共交通計画分析_JES_short.tex`, `publictransportplan/ptp_final/analysis_data/`, `Research_LLMBunruiki/classifier_final/` | 2026-08-03監査済み。運輸局との統計的関連を示すが因果効果は識別しない。987自治体と表集計991自治体の不整合、12,568件・Gemini版と12,574件・LFM後続版の版差は要解消。 |
+| 第5章 | `texts/chapter2.tex` | 生成AI時代の政策規範、創造システム・社会システム理論、AIの限界 | `Research_AI_Policy/thesis_written/Human_Policy_Paper/executive_creativity_v2.tex` | `Research_AI_Policy/thesis_written/Human_Policy_Paper/Policyinfomatics/`, `Research_AI_Policy/thesis_written/LLM_Planning_Paper/`, `Research_CARATS/analysis_nextgen/` | 2026-08-03監査済み。アクティブ草稿は `executive_creativity_v2.tex` 系、提出済みWord群は別系統として扱う。 |
+| 第6章 | `texts/chapter3.tex` | 認知バイアスと協調的ガバナンスの計算論的分析 | `RobotArmProject/issj_paper/issj_paper.tex` | `RobotArmProject/docs/final_papers/academic_paper_final.md`, `RobotArmProject/results/`, `RobotArmProject/src/` | 2026-08-03監査済み。22,000回シミュレーションの実証図7点を保持。旧三層対応図と対応策図は、未検証の主体・バイアス対応を図中で断定するため本文へ戻していない。補足的費用分析は制度費用ではなく運動コストの感度分析。 |
 | 第7章 | `texts/chapter7.tex` | 秘密保護と民主的正当性を両立する政策評価システム設計 | `Research_ZK_Snarks/jjsce_v1.2/paper-policy-evaluation.tex` | `Research_ZK_Snarks/thesis_written/`, `Research_AI_Policy/thesis_written/jappm2025.md`, `Research_ZK_Snarks/experiments/cai_privacy_poc/`, `Research_ZK_Snarks/review_claude.md` | 章冒頭に Source コメントあり。2026-07-06に、第8章の80分フィールド実験は最小実装である旨を追記。 |
-| 第8章 | `texts/chapter8.tex` | Verdictによる実証、公共的価値接続、フィールド実験 | `Research_ZK_Snarks/apply/20260509/ieee_template/r10_htc2026_paper.tex`, `Research_ZK_Snarks/apply/20260608_verdict_field/` | `Research_ZK_Snarks/apply/20260527/05_draft_paper.md`, `Research_ZK_Snarks/apply/20260509/41_model_family_judge_training_handoff_note.md`, `Research_ZK_Snarks/apply/20260527/data/` | 2026-07-06に大幅更新。盛岡100ケースC0--C3、LoRAの限定的結果、80分ワークショップ、秘密保護の限定検証を反映。 |
-| 第9章 | `texts/chapter9.tex` | 制度設計への示唆 | 博論内で統合作成 | 第3章・第4章・第6章・第7章・第8章、`Presentations_Archive/現代の政策形成...md`（要所在確認） | まだ `【編集中】` が残る。第8章更新後のVerdict実証、AIの杖、知識接続の議論を再統合する必要がある。 |
-| 第10章 | `texts/chapter10.tex` | 結論、公共交通政策への展開、今後の課題 | 博論内で統合作成 | 全章、特に第7・8章 | 2026-07-06に第8章を「実施予定」から「ラボ実証・フィールド実験設計・限定検証」に修正済み。 |
+| 第8章 | `texts/chapter8.tex` | Verdictのラボ実証、フィールド実験計画、秘密保護の限定検証 | `Research_ZK_Snarks/apply/20260509/ieee_template/r10_htc2026_paper.tex`, `Research_ZK_Snarks/apply/20260608_verdict_field/` | `Research_ZK_Snarks/apply/20260527/05_draft_paper.md`, `Research_ZK_Snarks/apply/20260509/41_model_family_judge_training_handoff_note.md`, `Research_ZK_Snarks/apply/20260527/data/` | 2026-08-03監査済み。盛岡100ケースC0--C3と合成データ秘密保護は実施済み、フィールド実験と教材用秘匿ケースは計画段階。盛岡市一次資料を参考文献へ追加。 |
+| 第9章 | `texts/chapter9.tex` | メタ・ネイチャーが公共政策に及ぶ場合の制度設計 | 博論内で統合作成 | 第2章〜第8章、`Presentations_Archive/現代の政策形成...md`（要所在確認） | 2026-08-03監査済み。`【編集中】`表示は意図的に保持。五つの論点は第1章の必要条件ではなく、第9章が四つのRQを制度設計へ移すために用いる統合軸。 |
+| 第10章 | `texts/chapter10.tex` | 四つのリサーチクエスチョンへの回答、貢献、限界、今後の課題 | 博論内で統合作成 | 全章、特に第7〜9章 | 2026-08-03監査済み。第2章38事業、第3章「42自治体中1」の意味、第4章の統計的関連、第8章の計画・限定検証を反映。 |
 
 ## 章番号とファイル名のずれ
 
@@ -61,7 +62,7 @@
 ## 既存マッピング文書との関係
 
 - `CHAPTER_MAPPING.md`: 現在の章番号、TeXファイル、図ディレクトリの対応。章ファイルを探すときに使う。
-- `THESIS_PLAN.md`: 博論全体の構想、章ごとの役割、既存研究との対応。やや古い箇所が残る。
+- `THESIS_PLAN.md`: 博論全体の中心課題、四つのRQ、章ごとの役割、現在の到達点と残る課題。
 - `notes/FILE_MAPPING.md`: 初期構成時代の対応表。現在の10章構成とはずれているため、履歴資料として扱う。
 - 本ファイル `CHAPTER_SOURCE_MAP.md`: 現在の章ごとの元フォルダ地図。個別論文側の更新漏れ確認に使う。
 
