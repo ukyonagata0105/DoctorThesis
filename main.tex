@@ -17,8 +17,13 @@
 % \setsansjfont{IPAexGothic}
 
 % 参考文献（各章ごとに出力するための設定）
-\usepackage[style=numeric,sorting=none,backend=biber,refsection=chapter]{biblatex}
+\usepackage[style=numeric,sorting=none,backend=biber,refsection=chapter,giveninits=true,maxbibnames=99]{biblatex}
 \addbibresource{./refs/references.bib}
+% Numbered references follow the surname-plus-initial convention used in
+% NLM/Vancouver-style bibliographies (e.g. Howlett M.).
+\DeclareNameAlias{author}{family-given}
+\DeclareNameAlias{editor}{family-given}
+\renewcommand*{\revsdnamepunct}{\addspace}
 
 % 基本パッケージ
 \usepackage{amsmath,amssymb}
@@ -37,6 +42,7 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{xurl}
 \usepackage[colorlinks=true,linkcolor=blue,anchorcolor=magenta,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,arrows.meta,positioning,calc}

@@ -6,102 +6,20 @@
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-This study explores the collaborative relationship between generative AI and humans, using public transport policy as an empirical context.
+This study examines the effects and governance of artificial environments in policy formation through a diagnosis of regional public transport policy and the design of human--AI roles. Saito's concept of Meta-Nature describes a future in which an artificial environment, including artificial general intelligence, continuously organizes production and distribution. When this concept extends to public policy, computational systems no longer operate only as discrete analytical tools; they become part of the environment in which policy actors formulate problems, objectives, evaluation criteria, and options. This study asks how such an environment affects the policy design space and what is required to govern those effects publicly.
 
-% ============================================================================
-% Chapter 1
-% ============================================================================
-\subsection*{Chapter 1: Introduction}
+The study addresses four research questions. First, it diagnoses how institutions, knowledge, and interorganizational relations constrain the formation of policy objectives and evaluation criteria. Second, it distinguishes the knowledge-processing functions that generative AI can support from the normative judgments that remain attributable to humans and social procedures. Third, it examines the conditions under which coordination among actors with cognitive constraints can be maintained. Fourth, it designs a policy evaluation environment that addresses confidentiality, verifiability, and democratic legitimacy together. Regional public transport policy provides a suitable case because national institutions and fiscal measures, municipal plans, operators' confidential information, and residents' experiences intersect within the same policy process.
 
-\textbf{Context:} In recent years, the rapid development of generative AI has led to extensive discussion of its potential applications in policy-making processes. Large Language Models (LLMs), such as ChatGPT, have demonstrated performance comparable to or exceeding human capabilities in tasks such as text generation, summarization, and analysis. In Japanese public transport policy, "collaboration" and "co-creation" have been important policy concepts since regulatory reforms in 2002. In particular, 2021 saw the advocacy of "co-creation" across three dimensions: regional revitalization by transport operators, cross-sector collaboration, and community participation.
+Chapters 2 through 4 analyze Japanese Mobility-as-a-Service initiatives, a survey of 42 municipalities within the jurisdictions of the Hokkaido and Tohoku District Transport Bureaus, and 12,568 evaluation indicators used by 987 municipalities nationwide. The findings show that municipal policy objectives and evaluation criteria are shaped not only by regional conditions but also by planning templates, guidelines, fiscal measures, and intergovernmental knowledge flows. This diagnosis identifies distortions already present in the policy design space before the introduction of artificial environments, thereby distinguishing the knowledge that generative AI should supplement from the institutional constraints it should not reproduce.
 
-\textbf{Problem:} Despite these policy intentions, significant gaps exist at the implementation stage. Analysis of 38 Japan's MaaS projects revealed that 92\% focused solely on business indicators, while only 29\% incorporated social impact and accessibility improvements into their evaluation metrics. Furthermore, only 5\% of projects established mechanisms for citizen participation. This implementation gap may be attributable not only to institutional deficiencies but also to human cognitive characteristics. Human decision-making is strongly influenced by cognitive biases, with status quo bias, confirmation bias, and narrow framing having particularly significant impacts on policy formation.
+Chapter 5 draws on creative systems theory and social systems theory to position generative AI as a discovery medium that compares materials, generates issues and options, and records reasons for evaluation. Because intellectual capacity alone does not confer legitimacy to select values, authority to decide, or responsibility for outcomes, normative judgment remains attributable to humans and social procedures. Chapter 6 reports 22,000 simulations in which veto players are mapped onto the joints of an N-link robotic arm. Under the specified model conditions, status quo bias and narrow framing reduce coordination performance, whereas confirmation bias does not produce the same effect.
 
-\textbf{Method:} This study positions generative AI as a "staff" that complements human "executive creativity"—the human-specific capacity for value judgment, communication, and the creation of new norms—and explores how the two can collaborate. Specifically, three objectives were established: first, to computationally elucidate the influence of human cognitive biases as a factor in the implementation gap in public transport policy; second, to explore the possibilities of a privacy-preserving policy evaluation system as a concrete system for collaborative relationships between generative AI and humans; and third, to derive implications for institutional design that considers cognitive biases and generative AI.
+Chapters 7 and 8 design Verdict, a privacy-preserving policy evaluation system that combines Constitutional AI, LLM-as-a-Judge, and a trusted execution environment. A laboratory study using 100 cases derived from a Morioka citizen survey, a bounded confidentiality test, and the design of field experiments in Iwate Prefecture specify testable units that connect citizen-defined evaluation principles, confidential information held by policy participants, AI-generated reasons for evaluation, and human objection procedures. Chapter 9 integrates these findings into principles for institutional design, and Chapter 10 identifies their application to regional public transport policy and the scope of generalization to other policy domains.
 
-\textbf{Results:} This study consists of eight chapters. Chapter 2 reviews prior research, focusing on Human-AI Policy debates. Chapter 3 discusses the current status and challenges of public transport policy as the empirical context. Chapter 4 conducts computational analysis of the impact of cognitive biases on policy coordination. Chapter 5 proposes a privacy-preserving policy evaluation system as a framework for the relationship between generative AI and humans. Chapter 6 discusses empirical validation of integrated institutional governance. Chapter 7 derives implications for institutional design. Chapter 8 concludes with a discussion of applications to urban planning.
-
-% ============================================================================
-% Chapter 2
-% ============================================================================
-\subsection*{Chapter 2: Literature Review}
-
-\textbf{Context:} Discussions on AI applications in public policy have developed rapidly since the late 2010s. While initial debates focused on efficiency gains and automation of administrative services through AI, recent years have seen the relationship between AI and humans become the central question. Shneiderman (2022) proposed the concept of Human-Centered AI, advocating a "high automation, high control" domain where AI's computational capabilities and human normative judgment complement each other.
-
-\textbf{Problem:} However, AI has inherent limitations. First, there is the absence of normative judgment and value creation—AI cannot determine what is "good" for society. Second, there is the difficulty of contextual understanding—limitations in adapting to "unknown situations" outside the scope of training data. Third, there is the lack of a source of "creativity." The question remains how to design a relationship that utilizes AI as a "staff" while accounting for these limitations.
-
-\textbf{Method:} This chapter reviews prior research that forms the theoretical foundation of this study. It organizes six areas: "executive creativity" and Luhmann's theory, generative AI and policy formation, human-AI collaboration theory, collaborative governance theory, cognitive bias and decision-making, and privacy-preserving policy evaluation and policy evaluation, identifying theoretical gaps.
-
-\textbf{Results:} The literature review revealed several theoretical gaps. First, the theorization of "executive creativity"—research that grounds "executive creativity" using Luhmann's social systems theory and clarifies the division of roles between AI and humans is limited. Second, the connection between cognitive biases and policy coordination—research focusing on cognitive biases as a factor in collaborative governance failures is limited. Third, the lack of computational analysis methods—research that computationally models policy coordination processes is scarce. Fourth, the application of privacy-preserving policy evaluation concepts to policy evaluation. This study aims to fill these gaps.
-
-% ============================================================================
-% Chapter 3
-% ============================================================================
-\subsection*{Chapter 3: Public Transport Policy}
-
-\textbf{Context:} Japanese regional public transport policy has undergone significant changes since the 2000s. Using the STO framework proposed by Van de Velde, the evolution can be divided into five periods: the deregulation period (1997-2002), the regional consultation introduction period (2003-2008), the Democratic Party administration period (2009-2012), the network formation planning period (2013-2017), and the efficiency-focused period (2018-present). The "Japan's MaaS Promotion Project" that began in fiscal 2019 quickly spread nationwide and has launched over 100 projects to date.
-
-\textbf{Problem:} However, behind the policy evolution lies resource constraints on local governments. The 2023 report of the Expert Committee on Decentralization Reform points out an "inverted triangle" burden structure—local municipalities face disproportionately high implementation costs compared to prefectural and national levels. Such structural constraints create a context where collaborative and co-creative approaches may be undermined by implementation realities despite their theoretical appeal.
-
-\textbf{Method:} This chapter conducted a comparative analysis of evaluation indicators in regional public transport plans across 1,054 municipalities nationwide. Comprehensive indicators excluding standard indicators were classified using the Logic Model (input, output, outcome, impact, context) and Category (ridership, financial, accessibility, service, satisfaction, environmental) frameworks, and statistically verified what adoption differences exist across the nine regional transport bureaus nationwide.
-
-\textbf{Results:} Clustering analysis revealed that municipalities' goal-setting tendencies fall into four major types. "Outcome-ridership focus" accounted for about half (49.6\%), while municipalities adopting advanced indicator groups focused on "environment-impact" comprised only 2.8\%. The explanatory power of the "transport bureau dummy" reached 13.8\%–17.2\%, showing about 5–100 times the explanatory power of geographic characteristics. These empirical results suggest that goal-setting in regional public transport plans is more strongly influenced top-down by regional transport bureaus, which are local agencies of the national government, rather than being built bottom-up from individual regional issues.
-
-% ============================================================================
-% Chapter 4
-% ============================================================================
-\subsection*{Chapter 4: Computational Analysis of Cognitive Biases}
-
-\textbf{Context:} While the institutionalization of collaborative governance progresses, implementation challenges have also become apparent. Emerson et al. (2012) point out that collaboration requires significant transaction costs, may lead to lowest-common-denominator solutions, and risks capture by organized interests. Veto Player Theory shows that policy change requires consent from specific stakeholders, and the more "veto players" there are, the higher policy stability becomes and the more difficult reform becomes.
-
-\textbf{Problem:} This study focuses on the cognitive biases of these "veto players." Cognitive biases are systematic distortions in decision-making that can significantly influence stakeholder behavior. What impact does it have on the efficiency of collaborative governance when veto players have cognitive biases? In particular, the question of which biases are problematic and which are acceptable is important for institutional design.
-
-\textbf{Method:} This study employs computational modeling based on cooperative robot control theory. Each joint of an N-joint robot arm is modeled as a "veto player," and the impact of status quo bias, confirmation bias, and narrow framing on the coordination process is quantitatively analyzed. A total of 22,000 experiments were conducted and statistically evaluated using ANOVA tests and effect sizes (Cohen's $d$).
-
-\textbf{Results:} ANOVA tests revealed clear qualitative differences in how the three cognitive biases affect coordination. Status quo bias showed a highly significant negative effect on coordination performance ($F = 27.72, p < 10^{-100}$, Cohen's $d = -0.78$). Narrow framing similarly showed negative effects ($F = 27.29, p < 10^{-50}$, Cohen's $d = -0.80$). In contrast, confirmation bias showed no significant effect on coordination performance ($p > 0.05$, Cohen's $d = -0.07$). Cost-effectiveness analysis results showed that selective intervention targeting status quo bias and narrow framing is rational for municipalities under the "inverted triangle" structure.
-
-% ============================================================================
-% Chapter 5
-% ============================================================================
-\subsection*{Chapter 5: privacy-preserving policy evaluation-Type Policy Evaluation System}
-
-\textbf{Context:} The wicked problems facing modern society are difficult to adequately address with conventional policy-making and evaluation methods due to their complexity and multifaceted nature. Policy evaluation requires the integration of diverse expertise, but much information useful for policy evaluation—such as corporate technical information, unpublished research institution data, and individual experiential knowledge—requires confidentiality.
-
-\textbf{Problem:} Conventional policy evaluation processes have assumed the disclosure of confidential information, limiting the participation of information providers and undermining the quality and legitimacy of evaluations. This structural contradiction has made the reconciliation of high-quality professional evaluation and protection of participant confidentiality an essential challenge in policy dialogue.
-
-\textbf{Method:} This study constructs a policy dialogue infrastructure integrating principle formulation through citizen deliberation, confidential proof using privacy-preserving policy evaluation concepts, and embedding professional values through Constitutional AI training methods. A three-layer architecture (human layer, training layer, operation layer) was designed, with LLM as a Judge at its core.
-
-\textbf{Results:} The proposed system achieves four objectives. First, the reconciliation of democratic legitimacy through citizen participation and professional evaluation. Second, the realization of policy proposals containing confidential information. By mimicking the confidential proof properties of privacy-preserving policy evaluation, trade secrets and unpublished research data can be submitted to the system. Third, diversification of participants and qualitative improvement of proposals. Confidentiality guarantees enable research institutions that previously hesitated to participate to submit high-quality policy proposals. Fourth, the reconciliation of transparency and confidentiality protection. Transparency of the evaluation process is maintained while protecting confidential information contained in proposals.
-
-% ============================================================================
-% Chapter 6
-% ============================================================================
-\subsection*{Chapter 6: Implications for Institutional Design}
-
-\textbf{Context:} Concrete implications for institutional design need to be derived from the computational analysis in Chapter 4 and the privacy-preserving policy evaluation-type system design in Chapter 5. In particular, strategies for addressing cognitive biases and directions for institutional design incorporating generative AI are needed.
-
-\textbf{Problem:} While it became clear that status quo bias and narrow framing hinder coordination, measuring the intensity of biases is practically difficult. The focus of institutional design should be not on "bias management" but on "designing consultation systems that don't allow biases to manifest."
-
-\textbf{Method:} This chapter presents coping strategies for each bias. For status quo bias, accumulation of small changes, sunset clauses, and periodic policy reviews are proposed. For confirmation bias, institutionalization of "devil's advocates" and participation of diverse stakeholders are proposed. For narrow framing, cross-cutting KPIs, multi-criteria frameworks (such as MIRA), and complete information sharing are proposed.
-
-\textbf{Results:} Four principles were presented for governance utilizing generative AI as a "staff." First, the principle of complementarity (AI serves as a tool that complements human capabilities and improves decision quality). Second, the principle of transparency (explicitly stating AI usage methods and limitations, making inference processes verifiable). Third, the principle of accountability (humans bear final value judgments and policy responsibility). Fourth, the principle of continuous learning (utilizing human support functions shown in the privacy-preserving policy evaluation-type system to continuously improve AI-human coordination processes).
-
-% ============================================================================
-% Chapter 8
-% ============================================================================
-\subsection*{Chapter 8: Conclusion}
-
-\textbf{Context:} This study explored the collaborative relationship between generative AI and humans using public transport policy as the "first stage."
-
-\textbf{Problem:} There was a need to elucidate the factors behind the implementation gap in public transport policy, propose a concrete system for collaborative relationships between generative AI and humans, and derive implications for institutional design.
-
-\textbf{Method:} This study theorized "executive creativity" based on Luhmann's social systems theory, introduced computational analysis methods using cooperative robot control models, and attempted to apply privacy-preserving policy evaluation concepts to policy evaluation.
-
-\textbf{Results:} The core claim of this study is that generative AI can support policy formation through dialogic intervention addressing cognitive biases as a "staff" that complements human "executive creativity." By leveraging privacy-preserving policy evaluation concepts, a policy evaluation system that reconciles confidentiality and reliability becomes possible. Going forward, through empirical validation on the "second stage" of urban planning, we will explore better ways for generative AI and humans to collaborate.
-
+The study concludes that even when Meta-Nature, premised on artificial general intelligence, extends to public policy, intellectual and technical autonomy alone cannot form publicly legitimate policy objectives and evaluation criteria. By using generative AI as a discovery medium and combining coordination procedures premised on cognitive constraints with privacy-preserving policy evaluation, part of a governance foundation can be designed while retaining normative choice, objection, verification, and responsibility in human and institutional processes. The contribution of this study lies in moving beyond the performance evaluation of artificial environments to diagnose their effects on policy formation and to present, in a single argument, institutional and technical conditions under which humans can continue to formulate objectives and update those environments.
 
 \vspace{1cm}
 \noindent
-\textbf{Keywords}: Generative AI, Policy Formation, Cognitive Bias, Public Transport Policy, privacy-preserving policy evaluation, Institutional Design
+\textbf{Keywords}: Artificial Environments, Meta-Nature, Generative AI, Policy Formation, Regional Public Transport Policy, Policy Evaluation, Institutional Design
 
 % -----------------------------------------------------------------------------------------------------------------------------------------

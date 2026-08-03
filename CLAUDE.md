@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Ukyo Nagata's doctoral thesis: **「生成AIと人間の協調的関係性の設計：公共交通政策を事例として」**
-(Design of Collaborative Relationships between Generative AI and Humans: A Case Study of Public Transportation Policy)
+Ukyo Nagata's doctoral thesis: **「政策形成における人工環境の作用と統治――メタ・ネイチャー概念に基づく地域公共交通政策の診断と生成AI・人間の役割設計――」**
+(The Effects and Governance of Artificial Environments in Policy Formation: A Diagnosis of Regional Public Transport Policy and the Design of Human--AI Roles Based on the Concept of Meta-Nature)
 
 - Mid-presentation: June 5, 2026
 - Final deadline: January 1, 2027

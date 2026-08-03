@@ -1,8 +1,9 @@
 # 博士論文構成計画（改訂版）
 
-## タイトル案
-**「生成AIと人間の協調的関係性の設計：公共交通政策を事例として」**
-（または: **「政策形成における生成AIと人間の関係性：認知バイアス・秘密保護評価・制度設計」**）
+## 現行題名
+**「政策形成における人工環境の作用と統治――メタ・ネイチャー概念に基づく地域公共交通政策の診断と生成AI・人間の役割設計――」**
+
+**The Effects and Governance of Artificial Environments in Policy Formation: A Diagnosis of Regional Public Transport Policy and the Design of Human--AI Roles Based on the Concept of Meta-Nature**
 
 ---
 
